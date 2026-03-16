@@ -6,12 +6,13 @@
 
 /* ===== THEME ===== */
 
-:root {
-  --background: #1c1c22;
-  --foreground: #ffffff;
+@theme {
+  --color-background: #1c1c22;
+  --color-foreground: #ffffff;
 
-  --primary: #00ff99;
-  --primary-hover: #00e187;
+  --color-accent: #00ff99;
+  --color-primary: #00002b;
+  --color-primary-hover: #00e187;
 
   --radius: 0.625rem;
 }
@@ -19,9 +20,9 @@
 /* ===== BASE ===== */
 
 @layer base {
-
   body {
-    @apply bg-black text-white leading-loose antialiased;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    @apply leading-loose antialiased;
   }
-
 }

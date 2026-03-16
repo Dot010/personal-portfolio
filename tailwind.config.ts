@@ -18,10 +18,8 @@ const config: Config = {
       },
       colors: {
         background: "#1c1c22",
-        primary: {
-          DEFAULT: "#00ff99",
-          hover: "#00e187",
-        },
+        primary: "#00ff99",
+        "primary-hover": "#00e187",
       },
     },
   },
