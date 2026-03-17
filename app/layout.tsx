@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${jetBrainsMono.variable} antialiased`}>
+      <body className={`${jetBrainsMono.className} antialiased`}>
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>

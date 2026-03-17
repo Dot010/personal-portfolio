@@ -14,7 +14,9 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        primary: ["JetBrains Mono", "monospace"],
+      fontFamily: {
+      mono: ["var(--font-jetbrains-mono)", "monospace"],
+}
       },
       colors: {
         background: "#1c1c22",
