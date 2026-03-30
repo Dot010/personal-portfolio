@@ -10,9 +10,9 @@
   --color-background: #1c1c22;
   --color-foreground: #ffffff;
 
-  --color-accent: #00ff99;
+  --color-accent: #009ddd;
   --color-primary: #00002b;
-  --color-primary-hover: #00e187;
+  --color-primary-hover: #009ddd;
 
   --radius: 0.625rem;
 }
@@ -39,12 +39,12 @@
     -webkit-text-stroke: 1px #ffffff;
   }
   
+}
   .text-outline-hover {
-    -webkit-text-stroke: 1px #00ff99;
+    -webkit-text-stroke: 1px #009ddd;
   }
   
-   .group:hover .text-outline {
-     -webkit-text-stroke: 1px #00ff99;
+  .group:hover .text-outline {
+    -webkit-text-stroke: 1px #009ddd;
    }
-}
 

@@ -36,7 +36,7 @@ const Services  = () => {
               {/* Top */}
             <div className="w-full flex justify-between items-center">
                 <div className="text-5xl font-extrabold text-outline
-                text-transparent transition-all duration-500">
+                text-transparent transition-all duration-500 ">
                   {String(service.num).padStart(2, "0")}
                 </div>
                 <Link

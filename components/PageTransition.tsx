@@ -23,7 +23,7 @@ const pathname = usePathname();
                     ease: "easeInOut",
                 }}
                     
-                className="h-screen w-screen fixed bg-primary top-0 pointer-events-none"
+                className="h-screen w-screen fixed bg-primary/15 top-0 pointer-events-none"
             />
                     {children}
                     </div>    

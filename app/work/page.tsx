@@ -33,32 +33,39 @@ const projects: Project[] = [
     num: '01',
     category: "Full-Stack",
     title: "project 1",
-    description: "O SelfCheckApp foi desenvolvido para oferecer uma experiência moderna, prática e eficiente no processo de pedidos em restaurantes.",
+    description: "SelfCheckApp was developed to provide a modern, practical, and efficient ordering experience for restaurants",
     stack: [{ name: "Next.js" }, { name: "TypeScript" }, { name: "Tailwind CSS" }, { name: "Prisma ORM" }, { name: "PostgreSQL" }, { name: "Stripe" }],
-    image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
+    image: "/assets/work/work1.png",
+    live: "https://self-check-app.vercel.app/fsw-donalds",
+    github: "https://github.com/Dot010/SelfCheckApp",
   },
-  {
-    num: '02',
-    category: "Full-Stack",
-    title: "project 2",
-    description: "O SelfCheckApp foi desenvolvido para oferecer uma experiência moderna, prática e eficiente no processo de pedidos em restaurantes.",
-    stack: [{ name: "Next.js" }, { name: "TypeScript" }, { name: "Tailwind CSS" }, { name: "Prisma ORM" }, { name: "PostgreSQL" }, { name: "Stripe" }],
-    image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
-  },
-  {
-    num: '03',
-    category: "Full-Stack",
-    title: "project 3",
-    description: "O SelfCheckApp foi desenvolvido para oferecer uma experiência moderna, prática e eficiente no processo de pedidos em restaurantes.",
-    stack: [{ name: "Next.js" }, { name: "TypeScript" }, { name: "Tailwind CSS" }, { name: "Prisma ORM" }, { name: "PostgreSQL" }, { name: "Stripe" }],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
-  },
+{
+  num: '02',
+  category: "Frontend",
+  title: "Clone Disney+",
+  description: "A responsive Disney+ landing page clone, focusing on mobile-first layout, style modularization, and build automation.",
+  stack: [{ name: "HTML5" }, { name: "CSS3" }, { name: "Sass" }, { name: "JavaScript" }, { name: "Gulp" }],
+  image: "/assets/work/work2.png",
+  live: "https://clone-disney-plus-tau-two.vercel.app/",
+  github: "https://github.com/Dot010/CloneDisneyPlus",
+},
+{
+  num: "03",
+  category: "Full-Stack Project",
+  title: "Psy Care",
+  description: "A mental health platform currently in development, focused on therapeutic tracking through mood monitoring and emotional journals.",
+  stack: [
+    { name: "Next.js" }, 
+    { name: "TypeScript" }, 
+    { name: "Tailwind CSS" }, 
+    { name: "Prisma ORM" }, 
+    { name: "PostgreSQL" }, 
+    { name: "Stripe" }
+  ],
+  image: "/assets/work/work4.png", // Certifique-se de que a imagem existe na pasta public/assets/work
+  live: "", // Deixe vazio ou coloque "Work in Progress" se o seu componente tratar isso
+  github: "https://github.com/Dot010/Psycare", // Recomendo subir o código mesmo em dev
+},
 ];
 
 const Work = () => {
