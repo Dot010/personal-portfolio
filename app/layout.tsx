@@ -1,5 +1,6 @@
 import { JetBrains_Mono } from "next/font/google";
-
+import "swiper/css";
+import "swiper/css/bundle";
 import "./globals.css";
 
 // components

@@ -146,7 +146,7 @@ const swiperRef = useRef<SwiperType | null>(null);
             >
               {projects.map((proj, index) => (
                 <SwiperSlide key={index} className="w-full">
-                  <div className="relative w-full h-[350px] sm:h-[400px] md:h-[460px] flex justify-center items-center bg-primary">
+                  <div className="relative w-full h-[350px] sm:h-[400px] md:h-[460px] flex justify-center items-center rounded-2xl overflow-hidden bg-[#212127f6]">
 
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-black/10 z-10"></div>
@@ -156,7 +156,7 @@ const swiperRef = useRef<SwiperType | null>(null);
                       <Image
                         src={proj.image}
                         fill
-                        className="object-contain"
+                        className="object-fill rounded-2xl"
                         alt={proj.title}
                         quality={100}
                         

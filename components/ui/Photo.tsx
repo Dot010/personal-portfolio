@@ -32,7 +32,7 @@ const Photo = () => {
                     
                     className="absolute w-74.5 aspect-square xl:w-120 mix-blend-lighten rounded-full overflow-hidden">
                     <Image
-                        src="/assets/CVPhoto.png"
+                        src="/assets/CvPhoto.png"
                         priority quality={100}
                         fill
                         alt=""
