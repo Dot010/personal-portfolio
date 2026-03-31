@@ -62,7 +62,7 @@ const projects: Project[] = [
     { name: "PostgreSQL" }, 
     { name: "Stripe" }
   ],
-  image: "/assets/work/work4.png", // Certifique-se de que a imagem existe na pasta public/assets/work
+  image: "/assets/work/work3.png", // Certifique-se de que a imagem existe na pasta public/assets/work
   live: "", // Deixe vazio ou coloque "Work in Progress" se o seu componente tratar isso
   github: "https://github.com/Dot010/Psycare", // Recomendo subir o código mesmo em dev
 },
@@ -156,7 +156,7 @@ const swiperRef = useRef<SwiperType | null>(null);
                       <Image
                         src={proj.image}
                         fill
-                        className="object-cover object-top"
+                        className="object-contain"
                         alt={proj.title}
                         quality={100}
                         
