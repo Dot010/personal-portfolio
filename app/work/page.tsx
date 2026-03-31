@@ -146,7 +146,7 @@ const swiperRef = useRef<SwiperType | null>(null);
             >
               {projects.map((proj, index) => (
                 <SwiperSlide key={index} className="w-full">
-                  <div className="relative w-full h-[350px] sm:h-[400px] md:h-[460px] flex justify-center items-center bg-pink-50/20">
+                  <div className="relative w-full h-[350px] sm:h-[400px] md:h-[460px] flex justify-center items-center bg-primary">
 
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-black/10 z-10"></div>
