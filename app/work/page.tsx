@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperType } from "swiper";
-import "swiper/swiper-bundle.css"; 
+import type { Swiper as SwiperType } from "swiper"
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";  
 import {  
   Tooltip,
