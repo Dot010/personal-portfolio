@@ -30,8 +30,8 @@ const Home = () => {
             {/* buttons and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <a
-                href="/assets/JonathanVianaEn.pdf"
-                download="JonathanVianaEn.pdf"
+                href="/assets/JonathanVianaEN.pdf"
+                download="JonathanVianaEN.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
