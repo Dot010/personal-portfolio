@@ -42,10 +42,8 @@ const Contact = () => {
     <motion.section
       id="contact"
       initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
-      }}
+      whileInView={{ opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
+      viewport={{ once: true, amount: 0.2 }}
       className="py-10"
     >
       <div className="container mx-auto">

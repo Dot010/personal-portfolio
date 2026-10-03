@@ -14,13 +14,11 @@ import { motion } from "framer-motion";
 import { about, education, goals, skills } from "@/data/resume";
 
 const Resume = () => {
-  return <motion.section id="resume" initial={{ opacity: 0 }} animate={{
-    opacity: 1, transition: {
-      delay: 2.4,
-      duration: 0.4,
-    ease: "easeIn"
-    }
-  }}
+  return <motion.section
+      id="resume"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
+      viewport={{ once: true, amount: 0.2 }}
     className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
   >
       <div className="container mx-auto">

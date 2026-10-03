@@ -10,11 +10,9 @@ const Services = () => {
     <section id="services" className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto">
         <motion.div
-          initial={{ opacity: 1 }}
-          animate={{
-            opacity: 1,
-            transition: { duration: 0.4, delay: 2.4, ease: "easeIn" },
-          }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
+          viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-15"
         >
           {services.map((service, index) => {
