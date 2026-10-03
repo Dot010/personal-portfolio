@@ -50,7 +50,7 @@ export default function CaseDialog({ project, open, onOpenChange }: CaseDialogPr
                     <dt className="text-white/60">Role</dt>
                     <dd>{project.role}</dd>
                     <dt className="text-white/60">Type</dt>
-                    <dd>{project.category}</dd>
+                    <dd>{project.kind}</dd>
                     <dt className="text-white/60">Stack</dt>
                     <dd>{project.stack.map((s) => s.name).join(", ")}</dd>
                     <dt className="text-white/60">Status</dt>

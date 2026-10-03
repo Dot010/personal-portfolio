@@ -20,7 +20,7 @@ const Lab = () => {
               <span className="text-xs text-accent">[{project.tag}]</span>
               <strong className="font-display text-2xl">{project.title}</strong>
               <p className="text-sm text-white/65">{project.description}</p>
-              <small className="text-xs text-white/45">{project.stack.map((s) => s.name).join(" · ")}</small>
+              <small className="text-xs text-white/45">{project.summary}</small>
             </a>
           ))}
 

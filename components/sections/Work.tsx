@@ -40,12 +40,7 @@ const Work = () => {
                   </span>
                   <span className="hidden text-right text-[13px] text-white/60 sm:block">
                     {project.category}
-                    <small className="block text-[11px] text-white/40">
-                      {project.stack
-                        .slice(0, 3)
-                        .map((s) => s.name)
-                        .join(" · ")}
-                    </small>
+                    <small className="block text-[11px] text-white/40">{project.summary}</small>
                   </span>
                   <FiArrowUpRight className="text-[22px] text-white/45 transition-[transform,color] duration-500 group-hover:rotate-45 group-hover:text-accent" />
                 </button>

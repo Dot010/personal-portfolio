@@ -14,7 +14,9 @@ export const projects: Project[] = [
     category: "Full-Stack",
     title: "SelfCheckApp",
     description:
-      "SelfCheckApp was developed to provide a modern, practical, and efficient ordering experience for restaurants.",
+      "A self-ordering experience for restaurants: customers browse the menu, build an order and pay from their own phone.",
+    summary: "Next.js · Prisma · Stripe",
+    kind: "Full-Stack web app",
     stack: [
       { name: "Next.js" },
       { name: "TypeScript" },
@@ -36,7 +38,9 @@ export const projects: Project[] = [
     category: "Frontend",
     title: "Apex Sports",
     description:
-      "A sports e-commerce platform focused on interactive product displays, filtering, and seamless cart operations.",
+      "A sports e-commerce focused on interactive product displays, filtering and smooth cart operations.",
+    summary: "React · Redux Toolkit",
+    kind: "E-commerce front-end",
     stack: [{ name: "React" }, { name: "TypeScript" }, { name: "Redux Toolkit" }, { name: "Styled Components" }],
     image: screenshot("https://apex-sports-seven.vercel.app/"),
     live: "https://apex-sports-seven.vercel.app/",
@@ -49,9 +53,11 @@ export const projects: Project[] = [
     group: "selected",
     num: "03",
     category: "Frontend",
-    title: "Clone Disney+",
+    title: "Disney+ Clone",
     description:
-      "A responsive Disney+ landing page clone, focusing on mobile-first layout, style modularization, and build automation.",
+      "A responsive clone of the Disney+ landing page, built to practise mobile-first layout and build tooling.",
+    summary: "Sass · Gulp",
+    kind: "Landing page study",
     stack: [{ name: "HTML5" }, { name: "CSS3" }, { name: "Sass" }, { name: "JavaScript" }, { name: "Gulp" }],
     image: screenshot("https://clone-disney-plus-tau-two.vercel.app/"),
     live: "https://clone-disney-plus-tau-two.vercel.app/",
@@ -66,7 +72,9 @@ export const projects: Project[] = [
     category: "Full-Stack",
     title: "PsyCare",
     description:
-      "Interactive mental health platform featuring emotional journals, habit tracking, appointments, and real-time user personalization.",
+      "Mental health platform with emotional journals, habit tracking and appointments.",
+    summary: "Next.js · TypeScript · Shadcn UI · Context API",
+    kind: "Full-Stack web app",
     stack: [
       { name: "Next.js" },
       { name: "TypeScript" },
@@ -87,7 +95,10 @@ export const projects: Project[] = [
     num: "JY-01",
     category: "Frontend",
     title: "Countdown",
-    description: "A timer/pomodoro app to manage focus and tasks in an interactive way.",
+    description:
+      "Pomodoro timer to manage focus and tasks interactively.",
+    summary: "React · TypeScript · Redux Toolkit · Styled Components",
+    kind: "Study project",
     stack: [{ name: "React" }, { name: "TypeScript" }, { name: "Redux Toolkit" }, { name: "Styled Components" }],
     image: screenshot("https://countdown-rockseat.vercel.app/"),
     live: "https://countdown-rockseat.vercel.app/",

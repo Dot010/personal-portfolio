@@ -16,6 +16,10 @@ export type Project = {
   status: "Live" | "In development";
   /** Short bullet points shown in the case file. */
   highlights: string[];
+  /** Short stack line shown in lists, e.g. "Next.js · Prisma · Stripe". */
+  summary: string;
+  /** Kind of project shown in the case file, e.g. "Landing page study". */
+  kind: string;
   /** Short bracketed tag for lab and junkyard cards, e.g. "study". */
   tag?: string;
   /** One-liner for junkyard cards. */
