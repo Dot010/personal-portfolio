@@ -3,10 +3,7 @@ import type { Project } from "@/types";
 const screenshot = (url: string) =>
   `https://api.microlink.io?url=${url}&screenshot=true&meta=false&embed=screenshot.url`;
 
-/**
- * Every project on the site. `group` decides the section:
- * "selected" → Selected work, "lab" → The lab, "junk" → Junkyard.
- */
+
 export const projects: Project[] = [
   {
     group: "selected",
@@ -36,15 +33,15 @@ export const projects: Project[] = [
     group: "selected",
     num: "02",
     category: "Frontend",
-    title: "Apex Sports",
+    title: "Beam-scene",
     description:
-      "A sports e-commerce focused on interactive product displays, filtering and smooth cart operations.",
+      "A coffee platform with interactive product displays and smooth cart operations.",
     summary: "React · Redux Toolkit",
-    kind: "E-commerce front-end",
+    kind: "front-end",
     stack: [{ name: "React" }, { name: "TypeScript" }, { name: "Redux Toolkit" }, { name: "Styled Components" }],
-    image: screenshot("https://apex-sports-seven.vercel.app/"),
-    live: "https://apex-sports-seven.vercel.app/",
-    github: "https://github.com/Dot010/Apex-Sports",
+    image: screenshot("https://bean-scene-coffee-ten.vercel.app/"),
+    live: "https://bean-scene-coffee-ten.vercel.app/",
+    github: "https://github.com/Dot010/beam-scene",
     role: "Solo — front-end",
     status: "Live",
     highlights: ["Product filtering", "Cart state with Redux Toolkit", "Themed with Styled Components"],
@@ -90,24 +87,7 @@ export const projects: Project[] = [
     highlights: ["Emotional journal", "Habit tracking", "Appointments"],
     tag: "in development",
   },
-  {
-    group: "junk",
-    num: "JY-01",
-    category: "Frontend",
-    title: "Countdown",
-    description:
-      "Pomodoro timer to manage focus and tasks interactively.",
-    summary: "React · TypeScript · Redux Toolkit · Styled Components",
-    kind: "Study project",
-    stack: [{ name: "React" }, { name: "TypeScript" }, { name: "Redux Toolkit" }, { name: "Styled Components" }],
-    image: screenshot("https://countdown-rockseat.vercel.app/"),
-    live: "https://countdown-rockseat.vercel.app/",
-    role: "Solo — front-end",
-    status: "Live",
-    highlights: ["Pomodoro focus cycles", "Task list", "State managed with Redux Toolkit"],
-    tag: "study",
-    note: "A pomodoro timer from a course. It still counts; I just moved on.",
-  },
+  
 ];
 
 export const selectedWork = projects.filter((p) => p.group === "selected");
