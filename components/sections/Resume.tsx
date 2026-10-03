@@ -1,181 +1,143 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger
-} from "@/components/ui/tooltip";
-
+import Reveal from "@/components/fx/Reveal";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { motion } from "framer-motion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { about, education, goals, skills } from "@/data/resume";
 
+const items = ":scope > li";
+
 const Resume = () => {
-  return <motion.section
+  return (
+    <Reveal
+      as="section"
       id="resume"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
-      viewport={{ once: true, amount: 0.2 }}
-    className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
-  >
+      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
+    >
       <div className="container mx-auto">
-        <Tabs
-          defaultValue="education"
-          className="flex flex-col xl:flex-row gap-[60px]"
-        >
-        <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-          <TabsTrigger value={"goals"}>Goals</TabsTrigger>
-            <TabsTrigger value={"education"}>Education</TabsTrigger>
-            <TabsTrigger value={"skills"}>Skills</TabsTrigger>
-            <TabsTrigger value={"about"}>About me</TabsTrigger>
+        <Tabs defaultValue="education" className="flex flex-col xl:flex-row gap-[60px]">
+          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
+            <TabsTrigger value="goals">Goals</TabsTrigger>
+            <TabsTrigger value="education">Education</TabsTrigger>
+            <TabsTrigger value="skills">Skills</TabsTrigger>
+            <TabsTrigger value="about">About me</TabsTrigger>
           </TabsList>
 
-        {/* Content */}
-        <div className="min-h-[70vh] w-full">
-          
-        {/* Goals */}
+          <div className="min-h-[70vh] w-full">
+            {/* Goals */}
             <TabsContent value="goals" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
-              <h3 className="text-4xl font-bold">{goals.title} </h3>
-              <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{goals.description}</p>
-              <ScrollArea className="h-[400px]">
-                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                  {goals.items.map((item, index) => {
-                    return (
-                      <motion.li
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="bg-[#232329] h-[184px] py-6
-                    px-10 rounded-xl flex flex-col justify-center items-center
-                    lg:items-start gap-3"
+                <h3 className="text-4xl font-bold">{goals.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{goals.description}</p>
+                <ScrollArea className="h-[400px]">
+                  <Reveal as="ul" stagger={items} y={20} className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+                    {goals.items.map((item) => (
+                      <li
+                        key={item.goal}
+                        className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-3"
                       >
                         <span className="text-accent text-2xl">🎯</span>
-                      <h3 className="text-xl font-bold">{item.goal}</h3>
-                        <span className={`text-sm px-3 py-1 rounded-full border ${
-                          item.status === "In Progress"
-                            ? "text-accent border-accent/30"
-                            : "text-white/40 border-white/10"}`}>
+                        <h4 className="text-xl font-bold">{item.goal}</h4>
+                        <span
+                          className={`text-sm px-3 py-1 rounded-full border ${
+                            item.status === "In Progress"
+                              ? "text-accent border-accent/30"
+                              : "text-white/40 border-white/10"
+                          }`}
+                        >
                           {item.status} - {item.deadline}
                         </span>
-                      
-                    </motion.li>
-                  )
-                  })}
-                </ul>
-              </ScrollArea>
+                      </li>
+                    ))}
+                  </Reveal>
+                </ScrollArea>
               </div>
-          </TabsContent>
+            </TabsContent>
 
             {/* Education */}
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{education.title} </h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                  {education.description}
-              </p>
-              <ScrollArea className="h-[400px]">
-                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-                  {education.items.map((item, index) => {
-                    return (
-                      <motion.li
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        key={index}
-                        className="bg-[#232329] h-[184px] py-6
-                    px-10 rounded-xl flex flex-col justify-center items-center
-                    lg:items-start gap-1"
+                <h3 className="text-4xl font-bold">{education.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{education.description}</p>
+                <ScrollArea className="h-[400px]">
+                  <Reveal as="ul" stagger={items} y={20} className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+                    {education.items.map((item) => (
+                      <li
+                        key={item.course}
+                        className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                       >
                         <span className="text-accent">{item.duration}</span>
-                        <h1 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
+                        <h4 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                           {item.institution}
-                        </h1>
-                        {/* Dot */}
+                        </h4>
                         <div className="flex items-center gap-3">
-                          <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>  
-                      <p className="text-white/60">{item.course}</p>
+                          <span className="w-[6px] h-[6px] rounded-full bg-accent" />
+                          <p className="text-white/60">{item.course}</p>
                         </div>
-                    </motion.li>
-                  )
-                  })}
-                </ul>
-              </ScrollArea>
-              </div>
-          </TabsContent>
-          
-            {/* Skills */}
-          <TabsContent value="skills" className="w-full h-full">
-            <div className="flex flex-col gap-[30px]">
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">{skills.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{skills.description}</p>
-              </div>
-              <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                {skills.skillList.map((skill, index) => {
-                  return(
-                    <motion.li key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}>
-                      <TooltipProvider delayDuration={100}> 
-                        <Tooltip>
-                          <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex 
-                          justify-center items-center group"> 
-                            <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                              <skill.icon /></div>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p className="capitalize">{skill.name}</p>
-                          </TooltipContent>                        
-                      </Tooltip> 
-                      </TooltipProvider>
-                      </motion.li>
-                  )
-                })}
-              </ul>
-            </div>
-          </TabsContent>
-          
-            {/* About */}
-          <TabsContent
-            value="about"
-            className="w-full text-center xl:text-left"
-          >
-            <div className="flex flex-col gap-[30px]">
-              <h3 className="text-4xl font-bold">{about.title}</h3>
-              <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{about.description}</p>
-              <ul className="grid grid-cols-1  gap-4 max-w-[620px] mx-auto xl:mx-0">
-                {about.info.map((item, index) => {
-                  return (
-                    <motion.li
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className="flex items-center justify-center xl:justify-start gap-4">
-                      <span className="text-white/60 min-w-[120px]">{item.fieldName }</span>
-                      <span className="text-xl">{item.fieldValue}</span>
-                    </motion.li>
-
-                  )
-                })}
-
-              </ul>
+                      </li>
+                    ))}
+                  </Reveal>
+                </ScrollArea>
               </div>
             </TabsContent>
 
+            {/* Skills */}
+            <TabsContent value="skills" className="w-full h-full">
+              <div className="flex flex-col gap-[30px]">
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">{skills.title}</h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{skills.description}</p>
+                </div>
+                <Reveal
+                  as="ul"
+                  stagger={items}
+                  y={20}
+                  className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]"
+                >
+                  {skills.skillList.map((skill) => (
+                    <li key={skill.name}>
+                      <TooltipProvider delayDuration={100}>
+                        <Tooltip>
+                          <TooltipTrigger
+                            aria-label={skill.name}
+                            className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group"
+                          >
+                            <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                              <skill.icon />
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="capitalize">{skill.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </li>
+                  ))}
+                </Reveal>
+              </div>
+            </TabsContent>
 
+            {/* About */}
+            <TabsContent value="about" className="w-full text-center xl:text-left">
+              <div className="flex flex-col gap-[30px]">
+                <h3 className="text-4xl font-bold">{about.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{about.description}</p>
+                <Reveal as="ul" stagger={items} y={20} className="grid grid-cols-1 gap-4 max-w-[620px] mx-auto xl:mx-0">
+                  {about.info.map((item) => (
+                    <li key={item.fieldName} className="flex items-center justify-center xl:justify-start gap-4">
+                      <span className="text-white/60 min-w-[120px]">{item.fieldName}</span>
+                      <span className="text-xl">{item.fieldValue}</span>
+                    </li>
+                  ))}
+                </Reveal>
+              </div>
+            </TabsContent>
           </div>
+        </Tabs>
+      </div>
+    </Reveal>
+  );
+};
 
-          </Tabs>  
-    </div>
-    </motion.section>
-    
-  }
-
-  export default Resume
+export default Resume;
