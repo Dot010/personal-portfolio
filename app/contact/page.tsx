@@ -19,6 +19,8 @@ import {
 
 import { FaEnvelope } from "react-icons/fa";
 
+import { site } from "@/data/site";
+
 type Info = {
   icon: React.ReactNode;
   title: string;
@@ -29,7 +31,7 @@ const info: Info[] = [
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "jonathan2500@outlook.pt",
+    description: site.email,
   },
 ];
 

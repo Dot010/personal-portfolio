@@ -6,6 +6,7 @@ import { FiDownload } from "react-icons/fi";
 import Social from "@/components/Social";
 import Photo from "@/components/ui/Photo";
 import Stats from "@/components/Stats";
+import { site } from "@/data/site";
 
 const Home = () => {
   return (
@@ -30,8 +31,8 @@ const Home = () => {
             {/* buttons and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <a
-                href="/assets/JonathanVianaEN.pdf"
-                download="JonathanVianaEN.pdf"
+                href={site.cv}
+                download
                 target="_blank"
                 rel="noopener noreferrer"
               >
