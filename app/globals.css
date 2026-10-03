@@ -13,8 +13,29 @@
   --color-accent: #009ddd;
   --color-primary: #00002b;
   --color-primary-hover: #009ddd;
+  --color-surface: #232329;
+  --color-surface-deep: #151518;
+
+  --font-display: var(--font-unbounded), "Arial Black", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
   --radius: 0.625rem;
+}
+
+/* Page container used by the redesigned sections */
+@utility wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 24px);
+}
+
+/* Small uppercase label, e.g. "[ Fig. 01 — Services ]" */
+@utility label {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.6);
 }
 
 /* ===== BASE ===== */

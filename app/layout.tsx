@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Unbounded } from "next/font/google";
 import "swiper/css";
 import "swiper/css/bundle";
 import "lenis/dist/lenis.css";
@@ -11,8 +11,14 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["100","200","300","400","500","600","700","800"],
+  weight: ["300", "400", "500", "700"],
   variable: "--font-jetbrains-mono",
+});
+
+const unbounded = Unbounded({
+  subsets: ["latin"],
+  weight: ["500", "700", "800"],
+  variable: "--font-unbounded",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${jetBrainsMono.className} antialiased`}>
+      <body className={`${jetBrainsMono.className} ${jetBrainsMono.variable} ${unbounded.variable} antialiased`}>
         <SmoothScroll>
           <Header />
           {children}
