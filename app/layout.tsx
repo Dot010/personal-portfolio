@@ -4,6 +4,7 @@ import "lenis/dist/lenis.css";
 import "./globals.css";
 
 // components
+import EasterEgg from "@/components/fx/EasterEgg";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import SmoothScroll from "@/components/providers/SmoothScroll";
@@ -44,6 +45,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <EasterEgg />
         </SmoothScroll>
       </body>
     </html>
