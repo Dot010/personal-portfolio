@@ -1,12 +1,40 @@
 "use client";
 
+import { useRef } from "react";
 import { FiArrowDown, FiArrowUpRight, FiDownload } from "react-icons/fi";
 
 import { site, socials } from "@/data/site";
+import { gsap, SplitText, useGSAP } from "@/lib/gsap";
+import { scramble } from "@/lib/scramble";
 
 const Hero = () => {
+  const root = useRef<HTMLElement>(null);
+
+  // Intro: grid lines draw down, the first name rises letter by letter, the rest fades in.
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const split = SplitText.create(".hero-first", { type: "chars" });
+        const tl = gsap.timeline({ delay: 0.15 });
+        tl.from(".hero-grid span", { scaleY: 0, duration: 1.2, ease: "expo.out", stagger: 0.08 })
+          .from(split.chars, { yPercent: 110, duration: 0.9, ease: "expo.out", stagger: 0.04 }, "<")
+          .from(".hero-last", { xPercent: -6, autoAlpha: 0, duration: 1, ease: "expo.out" }, "<0.25")
+          .from(".hero-meta > *", { y: 14, autoAlpha: 0, duration: 0.6, stagger: 0.06, ease: "power3.out" }, "<0.1")
+          .add(() => {
+            const fig = root.current?.querySelector<HTMLElement>(".hero-fig");
+            if (fig) scramble(fig);
+          }, "<")
+          .from(".hero-foot > *, .hero-bottom", { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.08, ease: "power3.out" }, "<0.2");
+        return () => split.revert();
+      });
+      return () => mm.revert();
+    },
+    { scope: root },
+  );
+
   return (
-    <section id="home" className="relative pt-10 pb-14">
+    <section ref={root} id="home" className="relative pt-10 pb-14">
       {/* Faint 4-column grid behind the hero */}
       <div aria-hidden="true" className="hero-grid wrap pointer-events-none absolute inset-0">
         <div className="grid h-full grid-cols-4">
