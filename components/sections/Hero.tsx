@@ -114,15 +114,15 @@ const Hero = () => {
 
         <h1
           aria-label={site.name}
-          className="hero-name relative mt-16 font-display text-[clamp(46px,11vw,420px)] font-extrabold uppercase leading-[0.9] tracking-[-0.04em]"
+          className="hero-name relative mt-16 font-display text-[clamp(36px,11vw,420px)] font-extrabold uppercase leading-[0.9] tracking-[-0.04em]"
         >
           <span aria-hidden="true" className="hero-first block overflow-hidden pb-[0.04em]">
             {site.firstName}
           </span>
-          <span aria-hidden="true" className="hero-last relative block pl-[12%] sm:pl-[25%]">
+          <span aria-hidden="true" className="hero-last relative block pl-[12%]">
             <span className="hero-outline text-transparent [-webkit-text-stroke:2px_#fff]">{site.lastName}</span>
             <span className="hero-dot text-accent">.</span>
-            <span className="hero-solid absolute left-0 top-0 pl-[12%] text-white [clip-path:inset(0_100%_0_0)] sm:pl-[25%]">
+            <span className="hero-solid absolute left-0 top-0 pl-[12%] text-white [clip-path:inset(0_100%_0_0)]">
               {site.lastName}
             </span>
           </span>
