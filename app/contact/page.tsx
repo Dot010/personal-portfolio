@@ -17,7 +17,7 @@ import {
   SelectGroup,
 } from "@/components/ui/select";
 
-import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
 
 type Info = {
   icon: React.ReactNode;
@@ -27,19 +27,9 @@ type Info = {
 
 const info: Info[] = [
   {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "+55 (55) 99226-0711",
-  },
-  {
     icon: <FaEnvelope />,
     title: "Email",
     description: "jonathan2500@outlook.pt",
-  },
-  {
-    icon: <FaMapMarkedAlt />,
-    title: "Address",
-    description: "Monsenhor Vera 170, Rivera",
   },
 ];
 
