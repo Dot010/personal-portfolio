@@ -1,16 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { CiMenuFries } from "react-icons/ci";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { navLinks } from "@/data/site";
+import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 
+const sectionIds = navLinks.map((link) => link.id);
+
 const MobileNav = () => {
-  const pathname = usePathname();
+  const active = useActiveSection(sectionIds);
 
   return (
     <Sheet>
@@ -24,7 +26,7 @@ const MobileNav = () => {
 
         <div className="mt-32 mb-40 text-center text-2xl">
           <SheetClose asChild>
-            <Link href="/" className="text-4xl font-semibold">
+            <Link href="/#home" className="text-4xl font-semibold">
               Jonathan<span className="text-accent">.</span>
             </Link>
           </SheetClose>
@@ -32,12 +34,13 @@ const MobileNav = () => {
 
         <nav className="flex flex-col justify-center items-center gap-8">
           {navLinks.map((link) => (
-            <SheetClose asChild key={link.path}>
+            <SheetClose asChild key={link.id}>
               <Link
-                href={link.path}
+                href={`/#${link.id}`}
+                aria-current={active === link.id ? "true" : undefined}
                 className={cn(
                   "text-xl capitalize hover:text-accent transition-all",
-                  link.path === pathname && "text-accent border-b-2 border-accent",
+                  active === link.id && "text-accent border-b-2 border-accent",
                 )}
               >
                 {link.name}

@@ -71,5 +71,5 @@ export type SocialLink = {
 
 export type NavLink = {
   name: string;
-  path: string;
+  id: string;
 };
