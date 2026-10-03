@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 
+import ContactForm from "@/components/contact/ContactForm";
 import { site } from "@/data/site";
 
 const Contact = () => {
@@ -53,6 +54,7 @@ const Contact = () => {
             {copied ? "Copied" : "Copy email"}
           </button>
         </div>
+        <ContactForm />
       </div>
     </section>
   );
