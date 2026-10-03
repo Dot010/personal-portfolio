@@ -4,6 +4,7 @@ import Lenis from "lenis";
 import { useEffect, type ReactNode } from "react";
 
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { setLenis } from "@/lib/lenis";
 
 /** Smooth scrolling with Lenis, driven by the GSAP ticker so ScrollTrigger stays in sync. */
 export default function SmoothScroll({ children }: { children: ReactNode }) {
@@ -11,6 +12,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({ lerp: 0.1 });
+    setLenis(lenis);
     lenis.on("scroll", ScrollTrigger.update);
 
     const tick = (time: number) => lenis.raf(time * 1000);
@@ -44,6 +46,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     return () => {
       document.removeEventListener("click", onClick, { capture: true });
       gsap.ticker.remove(tick);
+      setLenis(null);
       lenis.destroy();
     };
   }, []);
