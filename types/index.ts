@@ -55,3 +55,8 @@ export type Skills = {
     name: string;
   }[];
 };
+
+export type Stat = {
+  num: number;
+  text: string;
+};

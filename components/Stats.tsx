@@ -2,20 +2,7 @@
 
 import CountUp from "react-countup";
 
-type Stat = {
-  num: number;
-  text: string;
-};
-const stats : Stat[] =
-    [
-  { num: 3, text: "Year studying programming" },
-  { num: 5, text: "Projects completed" },
-  { num: 4, text: "Technologies learned" },
-{ num: 1, text: "Courses in progress" }
-]
-
-
-    
+import { stats } from "@/data/stats";
 
 const Stats = () => {
     return <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
