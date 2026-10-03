@@ -33,6 +33,29 @@ const Hero = () => {
     { scope: root },
   );
 
+  // On scroll: the outlined last name fills in, then the hero sinks back as you leave it.
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.to(".hero-solid", {
+          clipPath: "inset(0 0% 0 0)",
+          ease: "none",
+          scrollTrigger: { trigger: root.current, start: "top top", end: "60% top", scrub: true },
+        });
+        gsap.to(".hero-inner", {
+          scale: 0.94,
+          autoAlpha: 0.25,
+          filter: "blur(3px)",
+          ease: "none",
+          scrollTrigger: { trigger: root.current, start: "45% top", end: "bottom top", scrub: true },
+        });
+      });
+      return () => mm.revert();
+    },
+    { scope: root },
+  );
+
   return (
     <section ref={root} id="home" className="relative pt-10 pb-14">
       {/* Faint 4-column grid behind the hero */}
