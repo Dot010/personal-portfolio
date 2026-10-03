@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "swiper/css";
 import "swiper/css/bundle";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 // components
 import Header from "@/components/layout/Header";
 import PageTransition from "@/components/layout/PageTransition";
 import StairTransition from "@/components/layout/StairTransition";
+import SmoothScroll from "@/components/providers/SmoothScroll";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -35,9 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jetBrainsMono.className} antialiased`}>
-        <Header />
-        <StairTransition />
-        <PageTransition>{children}</PageTransition>
+        <SmoothScroll>
+          <Header />
+          <StairTransition />
+          <PageTransition>{children}</PageTransition>
+        </SmoothScroll>
       
       </body>
     </html>
