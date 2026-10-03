@@ -6,8 +6,8 @@ import "./globals.css";
 // components
 import EasterEgg from "@/components/fx/EasterEgg";
 import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
 import Loader from "@/components/layout/Loader";
+import SiteNav from "@/components/layout/SiteNav";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 
 const jetBrainsMono = JetBrains_Mono({
@@ -44,9 +44,9 @@ export default function RootLayout({
       <body className={`${jetBrainsMono.className} ${jetBrainsMono.variable} ${unbounded.variable} antialiased`}>
         <SmoothScroll>
           <Loader />
-          <Header />
           {children}
           <Footer />
+          <SiteNav />
           <EasterEgg />
         </SmoothScroll>
       </body>
