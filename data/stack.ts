@@ -23,3 +23,6 @@ export const arsenal: StackLevel[] = [
     items: [{ name: "Node.js" }, { name: "PostgreSQL" }, { name: "Sass" }, { name: "Figma" }],
   },
 ];
+
+/** What the snake eats: every technology in the arsenal, plus GSAP. */
+export const snakeFoods = [...arsenal.flatMap((group) => group.items.map((item) => item.name)), "GSAP"];

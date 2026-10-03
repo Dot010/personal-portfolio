@@ -1,5 +1,6 @@
 import Stats from "@/components/common/Stats";
 import Marquee from "@/components/fx/Marquee";
+import Break from "@/components/sections/Break";
 import Contact from "@/components/sections/Contact";
 import Dossier from "@/components/sections/Dossier";
 import Hero from "@/components/sections/Hero";
@@ -22,6 +23,7 @@ export default function Home() {
       <Junkyard />
       <Dossier />
       <Principles />
+      <Break />
       <Contact />
     </main>
   );
