@@ -1,9 +1,9 @@
 import type { StackLevel } from "@/types";
 
-/** Technologies shown in the scrolling band under the hero. */
-export const marqueeStack = ["Next.js", "React", "TypeScript", "Tailwind", "Python", "Node.js", "Redux", "Figma"];
 
-/** Technologies grouped by how often they are used. Adjust the levels to match reality. */
+export const marqueeStack = ["Next.js", "React", "TypeScript", "Tailwind", "GSAP", "Redux", "Python", "Three.js"];
+
+
 export const arsenal: StackLevel[] = [
   {
     level: "Daily",
@@ -16,13 +16,16 @@ export const arsenal: StackLevel[] = [
   },
   {
     level: "Working",
-    items: [{ name: "Python" }, { name: "JavaScript" }, { name: "Redux" }, { name: "Prisma" }, { name: "Git" }],
+    items: [{ name: "JavaScript" }, { name: "GSAP" }, { name: "Redux Toolkit" }, { name: "REST APIs" }, { name: "Styled Components" }, { name: "Git" }],
   },
   {
     level: "Familiar",
-    items: [{ name: "Node.js" }, { name: "PostgreSQL" }, { name: "Sass" }, { name: "Figma" }],
+    items: [{ name: "Python" }, { name: "Testing Library" }, { name: "Cypress" }, { name: "Jest" }, { name: "Prisma" }, { name: "Sass" }, { name: "Vue" }, { name: "Figma" }],
+  },
+  {
+    level: "Learning",
+    items: [{ name: "Three.js" }, { name: "SQL" }],
   },
 ];
 
-/** What the snake eats: every technology in the arsenal, plus GSAP. */
-export const snakeFoods = [...arsenal.flatMap((group) => group.items.map((item) => item.name)), "GSAP"];
+export const snakeFoods = arsenal.flatMap((group) => group.items.map((item) => item.name));

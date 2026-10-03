@@ -9,7 +9,7 @@ import { arsenal } from "@/data/stack";
 import { gsap, ScrollTrigger, SplitText, useGSAP } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
-const levelColor = { Daily: "text-accent", Working: "text-white/75", Familiar: "text-white/55" } as const;
+const levelColor = { Daily: "text-accent", Working: "text-white/75", Familiar: "text-white/55", Learning: "text-white/40" } as const;
 const recordBadge = {
   Shipped: "border-accent text-accent",
   Now: "border-accent bg-accent text-primary",
@@ -19,7 +19,7 @@ const recordBadge = {
 const Dossier = () => {
   const root = useRef<HTMLElement>(null);
 
-  // The about paragraph lights up word by word as it scrolls through the viewport.
+ 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
@@ -42,7 +42,7 @@ const Dossier = () => {
     { scope: root },
   );
 
-  // The education line draws itself downwards and each step lights up as the line reaches it.
+
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
@@ -79,7 +79,7 @@ const Dossier = () => {
         <SectionHead title="Dossier" fig="Fig. 05 — About" />
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-16">
-          {/* Left: who, arsenal, record */}
+        
           <div className="min-w-0">
             <p className="dossier-about mb-9 text-[clamp(19px,2.2vw,24px)] leading-relaxed">{aboutText}</p>
 
@@ -138,7 +138,6 @@ const Dossier = () => {
             </Reveal>
           </div>
 
-          {/* Right: education timeline and goals */}
           <div className="min-w-0">
             <p className="label mb-5">Education</p>
             <div className="relative">

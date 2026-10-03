@@ -77,6 +77,6 @@ export type RecordItem = {
 };
 
 export type StackLevel = {
-  level: "Daily" | "Working" | "Familiar";
+  level: "Daily" | "Working" | "Familiar" | "Learning";
   items: { name: string; highlight?: boolean }[];
 };
