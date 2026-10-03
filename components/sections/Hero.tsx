@@ -6,6 +6,7 @@ import { FiArrowDown, FiArrowUpRight, FiDownload } from "react-icons/fi";
 import HeroLens from "@/components/fx/HeroLens";
 import { site, socials } from "@/data/site";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
+import { onIntroDone } from "@/lib/intro";
 import { scramble } from "@/lib/scramble";
 
 const Hero = () => {
@@ -30,7 +31,7 @@ const Hero = () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const split = SplitText.create(".hero-first", { type: "chars" });
-        const tl = gsap.timeline({ delay: 0.15, onComplete: () => setLensReady(true) });
+        const tl = gsap.timeline({ paused: true, onComplete: () => setLensReady(true) });
         tl.from(".hero-grid span", { scaleY: 0, duration: 1.2, ease: "expo.out", stagger: 0.08 })
           .from(split.chars, { yPercent: 110, duration: 0.9, ease: "expo.out", stagger: 0.04 }, "<")
           .from(".hero-last", { xPercent: -6, autoAlpha: 0, duration: 1, ease: "expo.out" }, "<0.25")
@@ -40,7 +41,11 @@ const Hero = () => {
             if (fig) scramble(fig);
           }, "<")
           .from(".hero-foot > *, .hero-bottom", { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.08, ease: "power3.out" }, "<0.2");
-        return () => split.revert();
+        const stop = onIntroDone(() => tl.play());
+        return () => {
+          stop();
+          split.revert();
+        };
       });
       return () => mm.revert();
     },
