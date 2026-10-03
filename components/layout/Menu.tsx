@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { navLinks, site, socials } from "@/data/site";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { gsap } from "@/lib/gsap";
-import { getLenis } from "@/lib/lenis";
+import { getLenis, scrollToSection } from "@/lib/lenis";
 import { cn } from "@/lib/utils";
 
 const sectionIds = navLinks.map((link) => link.id);
@@ -20,6 +20,7 @@ export default function Menu({ open, onClose }: MenuProps) {
   const root = useRef<HTMLDivElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
   const lastFocus = useRef<HTMLElement | null>(null);
+  const pending = useRef<string | null>(null);
   const active = useActiveSection(sectionIds);
 
   useEffect(() => {
@@ -49,7 +50,14 @@ export default function Menu({ open, onClose }: MenuProps) {
     const finish = () => {
       gsap.set(el, { visibility: "hidden", clipPath: "inset(100% 0 0 0)" });
       getLenis()?.start();
-      lastFocus.current?.focus({ preventScroll: true });
+      const target = pending.current ? document.getElementById(pending.current) : null;
+      pending.current = null;
+      if (target) {
+        scrollToSection(target);
+        history.pushState(null, "", `#${target.id}`);
+      } else {
+        lastFocus.current?.focus({ preventScroll: true });
+      }
     };
     if (reduce) finish();
     else gsap.to(el, { clipPath: "inset(0 0 100% 0)", duration: 0.7, ease: "expo.inOut", onComplete: finish });
@@ -91,7 +99,12 @@ export default function Menu({ open, onClose }: MenuProps) {
           <a
             key={link.id}
             href={`#${link.id}`}
-            onClick={onClose}
+            data-menu-link
+            onClick={(e) => {
+              e.preventDefault();
+              pending.current = link.id;
+              onClose();
+            }}
             aria-current={active === link.id ? "true" : undefined}
             className="group flex items-baseline gap-4.5 overflow-hidden border-b border-white/10 py-1.5"
           >

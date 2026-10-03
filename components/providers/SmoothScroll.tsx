@@ -4,7 +4,7 @@ import Lenis from "lenis";
 import { useEffect, type ReactNode } from "react";
 
 import { gsap, ScrollTrigger } from "@/lib/gsap";
-import { setLenis } from "@/lib/lenis";
+import { scrollToSection, setLenis } from "@/lib/lenis";
 
 /** Smooth scrolling with Lenis, driven by the GSAP ticker so ScrollTrigger stays in sync. */
 export default function SmoothScroll({ children }: { children: ReactNode }) {
@@ -24,6 +24,8 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey) return;
       const link = (event.target as Element | null)?.closest?.("a[href*='#']");
       if (!(link instanceof HTMLAnchorElement)) return;
+      // Menu links scroll themselves once the menu has closed.
+      if (link.dataset.menuLink !== undefined) return;
 
       const url = new URL(link.href);
       if (url.origin !== location.origin || url.pathname !== location.pathname || !url.hash) return;
@@ -32,13 +34,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       if (!target) return;
 
       event.preventDefault();
-      // Use the layout position (offsetTop) so reveal transforms don't shift the target.
-      let top = 0;
-      for (let node: HTMLElement | null = target; node; node = node.offsetParent as HTMLElement | null) {
-        top += node.offsetTop;
-      }
-      const margin = Number.parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
-      lenis.scrollTo(top - margin, { duration: 1.2, force: true });
+      scrollToSection(target);
       history.pushState(null, "", url.hash);
     };
     document.addEventListener("click", onClick, { capture: true });
