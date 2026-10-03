@@ -12,7 +12,7 @@ Este é o meu portfólio profissional, desenvolvido para exibir meus projetos, h
 * **Framework:** [Next.js](https://nextjs.org/) (App Router)
 * **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
 * **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
-* **Animações:** [Framer Motion](https://www.framer.com/motion/)
+* **Animações:** [GSAP](https://gsap.com/) (ScrollTrigger, SplitText) & [Lenis](https://lenis.darkroom.engineering/) para rolagem suave
 * **Componentes de UI:** [Shadcn UI](https://ui.shadcn.com/) & [Radix UI](https://www.radix-ui.com/)
 * **Slider/Carrossel:** [Swiper.js](https://swiperjs.com/)
 * **Ícones:** [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
@@ -24,7 +24,7 @@ Este é o meu portfólio profissional, desenvolvido para exibir meus projetos, h
 * **Design Responsivo:** Adaptado para dispositivos móveis, tablets e desktop.
 * **Modo Dark Nativo:** Estética profissional focada em legibilidade e modernidade.
 * **Seção de Projetos Dinâmica:** Slider interativo com Swiper.js para navegação suave entre os cases de sucesso.
-* **Animações de Entrada:** Transições fluidas de página e componentes utilizando Framer Motion.
+* **Animações no scroll:** Seções reveladas conforme a rolagem com GSAP + ScrollTrigger, respeitando a preferência de reduzir movimento.
 * **Acessibilidade:** Uso de componentes semânticos e otimização para leitores de tela.
 
 ---
