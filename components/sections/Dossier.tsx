@@ -6,7 +6,7 @@ import SectionHead from "@/components/common/SectionHead";
 import Reveal from "@/components/fx/Reveal";
 import { aboutText, education, facts, goals, record } from "@/data/dossier";
 import { arsenal } from "@/data/stack";
-import { gsap, SplitText, useGSAP } from "@/lib/gsap";
+import { gsap, ScrollTrigger, SplitText, useGSAP } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 const levelColor = { Daily: "text-accent", Working: "text-white/75", Familiar: "text-white/55" } as const;
@@ -36,6 +36,37 @@ const Dossier = () => {
           },
         );
         return () => split.revert();
+      });
+      return () => mm.revert();
+    },
+    { scope: root },
+  );
+
+  // The education line draws itself downwards and each step lights up as the line reaches it.
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const steps = gsap.utils.toArray<HTMLElement>(".dossier-step");
+        steps.forEach((step) => step.classList.remove("is-lit"));
+        gsap.fromTo(
+          ".dossier-line",
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            ease: "none",
+            scrollTrigger: { trigger: ".dossier-line", start: "top 70%", end: "bottom 55%", scrub: true },
+          },
+        );
+        steps.forEach((step) =>
+          ScrollTrigger.create({
+            trigger: step,
+            start: "top 62%",
+            onEnter: () => step.classList.add("is-lit"),
+            onLeaveBack: () => step.classList.remove("is-lit"),
+          }),
+        );
+        return () => steps.forEach((step) => step.classList.add("is-lit"));
       });
       return () => mm.revert();
     },
