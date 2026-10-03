@@ -44,8 +44,14 @@ const nextConfig: NextConfig = {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
   async redirects() {
-    return ["services", "resume", "work", "contact"].map((section) => ({
-      source: `/${section}`,
+    const sections: Record<string, string> = {
+      services: "services",
+      resume: "dossier",
+      work: "work",
+      contact: "contact",
+    };
+    return Object.entries(sections).map(([path, section]) => ({
+      source: `/${path}`,
       destination: `/#${section}`,
       permanent: true,
     }));
