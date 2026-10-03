@@ -37,7 +37,8 @@ export default function Dock({ menuOpen, onMenu }: DockProps) {
       });
 
       // Current section label.
-      gsap.utils.toArray<HTMLElement>("[data-fig]").forEach((section) => {
+      // Sections live outside the dock, so query the whole document (not the useGSAP scope).
+      document.querySelectorAll<HTMLElement>("section[data-fig]").forEach((section) => {
         ScrollTrigger.create({
           trigger: section,
           start: "top 50%",
