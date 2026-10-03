@@ -20,6 +20,14 @@
 /* ===== BASE ===== */
 
 @layer base {
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
   body {
 
     background: var(--color-background);
