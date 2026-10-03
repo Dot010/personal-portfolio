@@ -34,7 +34,7 @@ const Services = () => {
                 {/* {Title} */}
                 <h2
                   className="text-[42px] font-bold leading-none text-white group-hover:text-accent
-              transiton-all duration-500"
+              transition-all duration-500"
                 >
                   {service.title}
                 </h2>
