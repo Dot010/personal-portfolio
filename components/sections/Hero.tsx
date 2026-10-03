@@ -91,7 +91,7 @@ const Hero = () => {
   return (
     <section ref={root} id="home" data-fig="Fig. 00 — Blank sheet" className="relative overflow-x-clip pt-10 pb-14">
       {/* Faint 4-column grid behind the hero */}
-      <div aria-hidden="true" className="hero-grid wrap pointer-events-none absolute inset-0">
+      <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0 px-[clamp(16px,4vw,64px)]">
         <div className="grid h-full grid-cols-4">
           {[0, 1, 2, 3].map((i) => (
             <span key={i} className="origin-top border-l border-white/5 last:border-r" />
@@ -99,7 +99,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="hero-inner wrap relative origin-top">
+      <div className="hero-inner relative w-full origin-top px-[clamp(16px,4vw,64px)]">
         <div className="hero-meta label grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-x-6 gap-y-2.5 border-b border-white/15 pb-4">
           <span className="hero-fig">[ Fig. 00 — Blank sheet ]</span>
           <span>{site.role}</span>
@@ -114,7 +114,7 @@ const Hero = () => {
 
         <h1
           aria-label={site.name}
-          className="hero-name relative mt-16 font-display text-[clamp(46px,10.5vw,148px)] font-extrabold uppercase leading-[0.9] tracking-[-0.04em]"
+          className="hero-name relative mt-16 font-display text-[clamp(46px,11vw,420px)] font-extrabold uppercase leading-[0.9] tracking-[-0.04em]"
         >
           <span aria-hidden="true" className="hero-first block overflow-hidden pb-[0.04em]">
             {site.firstName}
