@@ -374,7 +374,18 @@ export default function Snake({ foods }: { foods: string[] }) {
         </div>
 
         <p className="text-xs leading-loose text-white/60">
-          Arrows or WASD to move · Space to start / pause · swipe on phone
+          {["←", "↑", "→", "↓"].map((k) => (
+            <kbd key={k} className="rounded border border-b-2 border-white/15 px-1.5 text-[11px] text-white">
+              {k}
+            </kbd>
+          ))}{" "}
+          or{" "}
+          {["W", "A", "S", "D"].map((k) => (
+            <kbd key={k} className="rounded border border-b-2 border-white/15 px-1.5 text-[11px] text-white">
+              {k}
+            </kbd>
+          ))}{" "}
+          to move · <kbd className="rounded border border-b-2 border-white/15 px-1.5 text-[11px] text-white">Space</kbd> start / pause · swipe on phone
         </p>
       </div>
     </div>
