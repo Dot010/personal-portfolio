@@ -71,7 +71,7 @@ const Hero = () => {
   );
 
   return (
-    <section ref={root} id="home" className="relative pt-10 pb-14">
+    <section ref={root} id="home" className="relative overflow-x-clip pt-10 pb-14">
       {/* Faint 4-column grid behind the hero */}
       <div aria-hidden="true" className="hero-grid wrap pointer-events-none absolute inset-0">
         <div className="grid h-full grid-cols-4">
