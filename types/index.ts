@@ -1,3 +1,5 @@
+import type { IconType } from "react-icons";
+
 export type Project = {
   num: string;
   category: string;
@@ -51,7 +53,7 @@ export type Skills = {
   title: string;
   description: string;
   skillList: {
-    icon: import("react-icons").IconType;
+    icon: IconType;
     name: string;
   }[];
 };
@@ -59,4 +61,15 @@ export type Skills = {
 export type Stat = {
   num: number;
   text: string;
+};
+
+export type SocialLink = {
+  label: string;
+  href: string;
+  icon: IconType;
+};
+
+export type NavLink = {
+  name: string;
+  path: string;
 };
