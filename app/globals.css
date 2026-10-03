@@ -22,6 +22,20 @@
   --radius: 0.625rem;
 }
 
+@theme {
+  --animate-ping-soft: ping-soft 2s infinite;
+  --animate-nudge: nudge 1.6s ease-in-out infinite;
+
+  @keyframes ping-soft {
+    0% { box-shadow: 0 0 0 0 rgb(0 157 221 / 0.55); }
+    70% { box-shadow: 0 0 0 10px rgb(0 157 221 / 0); }
+    100% { box-shadow: 0 0 0 0 rgb(0 157 221 / 0); }
+  }
+  @keyframes nudge {
+    50% { transform: translateY(4px); }
+  }
+}
+
 /* Page container used by the redesigned sections */
 @utility wrap {
   width: 100%;

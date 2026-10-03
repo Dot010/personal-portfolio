@@ -1,68 +1,106 @@
-import { Button } from "@/components/ui/button";
-import { FiDownload } from "react-icons/fi";
+"use client";
 
-// components
+import { FiArrowDown, FiArrowUpRight, FiDownload } from "react-icons/fi";
 
-import Social from "@/components/common/Social";
-import Photo from "@/components/common/Photo";
-import Stats from "@/components/common/Stats";
-import { site } from "@/data/site";
+import { site, socials } from "@/data/site";
 
 const Hero = () => {
   return (
-    <section id="home" className="h-full">
-      <div className="container mx-auto h-full">
-        <div
-          className="flex flex-col xl:flex-row items-center justify-between
-        xl:pt-8 xl:pb-24"
+    <section id="home" className="relative pt-10 pb-14">
+      {/* Faint 4-column grid behind the hero */}
+      <div aria-hidden="true" className="hero-grid wrap pointer-events-none absolute inset-0">
+        <div className="grid h-full grid-cols-4">
+          {[0, 1, 2, 3].map((i) => (
+            <span key={i} className="origin-top border-l border-white/5 last:border-r" />
+          ))}
+        </div>
+      </div>
+
+      <div className="hero-inner wrap relative origin-top">
+        <div className="hero-meta label grid grid-cols-[repeat(auto-fit,minmax(190px,1fr))] gap-x-6 gap-y-2.5 border-b border-white/15 pb-4">
+          <span className="hero-fig">[ Fig. 00 — Blank sheet ]</span>
+          <span>{site.role}</span>
+          <span>
+            {site.location} · <span className="hero-clock tabular-nums">--:--</span>
+          </span>
+          <span className="flex items-center gap-2.5 text-white">
+            <i className="size-2 rounded-full bg-accent motion-safe:animate-ping-soft" />
+            {site.availability}
+          </span>
+        </div>
+
+        <h1
+          aria-label={site.name}
+          className="hero-name relative mt-16 font-display text-[clamp(46px,10.5vw,148px)] font-extrabold uppercase leading-[0.9] tracking-[-0.04em]"
         >
-          {/* text */}
-          <div className="text-center xl:text-left order-2 xl:order-0">
-            <span className="text-xl">Software Developer</span>
-            <h1 className="h1 mb-6">
-              Hello I am <br />{" "}
-              <span className="text-accent">Jonathan Carvalho</span>,
-            </h1>
-            <p className="max-w-125 mb-9 text-white/80">
-              Full-stack developer in progress, building responsive interfaces
-              and functional + back-end solutions while constantly improving my
-              skills.
+          <span aria-hidden="true" className="hero-first block overflow-hidden pb-[0.04em]">
+            {site.firstName}
+          </span>
+          <span aria-hidden="true" className="hero-last relative block pl-[12%] sm:pl-[25%]">
+            <span className="hero-outline text-transparent [-webkit-text-stroke:2px_#fff]">{site.lastName}</span>
+            <span className="hero-dot text-accent">.</span>
+            <span className="hero-solid absolute left-0 top-0 pl-[12%] text-white [clip-path:inset(0_100%_0_0)] sm:pl-[25%]">
+              {site.lastName}
+            </span>
+          </span>
+        </h1>
+
+        <div className="hero-foot mt-18 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] items-end gap-x-6 gap-y-8">
+          <div className="label leading-loose">
+            {site.mainStack.map((tech) => (
+              <span key={tech} className="block">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div>
+            <p className="mb-6 max-w-[46ch] text-white/80">
+              {site.intro} <em className="not-italic text-accent">{site.highlight}</em>
             </p>
-            {/* buttons and socials */}
-            <div className="flex flex-col xl:flex-row items-center gap-8">
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold text-primary"
+              >
+                Contact <FiArrowUpRight className="text-base" />
+              </a>
               <a
                 href={site.cv}
                 download
-                target="_blank"
-                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm"
               >
-                <Button
-                  variant="link"
-                  size="lg"
-                  className="uppercase flex items-center gap-2"
-                >
-                  <span>Download CV</span>
-                  <FiDownload className="text-xl" />
-                </Button>
+                Download CV <FiDownload className="text-base" />
               </a>
-              <div className="mb-8 xl:mb-0">
-                <Social
-                  containerStyles="flex gap-6"
-                  iconStyles=" w-9 h-9 border
-                border-accent rounded-full flex justify-center items-center
-                text-accent text-base hover:bg-accent hover:text-primary transition-all duration-500"
-                />
-              </div>
             </div>
           </div>
-          {/* photo */}
-          <div className="order-1 xl:order-0 mb-8 xl:mb-0">
-            <Photo />
-          </div>
+
+          <ul className="flex flex-wrap gap-3 text-[13px] sm:flex-col sm:items-end">
+            {socials.map((social) => (
+              <li key={social.label}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 transition-colors hover:text-accent"
+                >
+                  {social.label} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="hero-bottom label mt-16 flex justify-between gap-4">
+          <span className="flex items-center gap-3">
+            <FiArrowDown className="motion-safe:animate-nudge" />
+            Scroll to explore
+          </span>
+          <span>Portfolio — {new Date().getFullYear()}</span>
         </div>
       </div>
-      <Stats />
     </section>
   );
 };
+
 export default Hero;

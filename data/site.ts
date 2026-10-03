@@ -4,9 +4,17 @@ import type { NavLink, SocialLink } from "@/types";
 
 export const site = {
   name: "Jonathan Carvalho",
+  firstName: "Jonathan",
+  lastName: "Carvalho",
   role: "Software Developer",
   email: "jonathan2500@outlook.pt",
   cv: "/assets/JonathanVianaEN.pdf",
+  location: "UTC−3 / Remote 30.9°S",
+  timeZone: "America/Sao_Paulo",
+  availability: "Available for freelance",
+  intro: "Full-stack developer in progress. I build responsive interfaces and the back-end behind them.",
+  highlight: "No templates, just code I understand.",
+  mainStack: ["Next.js", "TypeScript", "Python"],
 };
 
 export const socials: SocialLink[] = [

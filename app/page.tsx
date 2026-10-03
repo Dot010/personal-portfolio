@@ -1,3 +1,4 @@
+import Stats from "@/components/common/Stats";
 import Contact from "@/components/sections/Contact";
 import Hero from "@/components/sections/Hero";
 import Resume from "@/components/sections/Resume";
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Stats />
       <Services />
       <Resume />
       <Work />
