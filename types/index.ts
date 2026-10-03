@@ -35,41 +35,6 @@ export type InfoField = {
   fieldValue: string;
 };
 
-export type About = {
-  title: string;
-  description: string;
-  info: InfoField[];
-};
-
-export type Education = {
-  title: string;
-  description: string;
-  items: {
-    institution: string;
-    course: string;
-    duration: string;
-  }[];
-};
-
-export type Goals = {
-  title: string;
-  description: string;
-  items: {
-    goal: string;
-    deadline: string;
-    status: string;
-  }[];
-};
-
-export type Skills = {
-  title: string;
-  description: string;
-  skillList: {
-    icon: IconType;
-    name: string;
-  }[];
-};
-
 export type Stat = {
   num: number;
   text: string;
