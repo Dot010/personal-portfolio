@@ -2,7 +2,7 @@ import type { Stat } from "@/types";
 
 export const stats: Stat[] = [
   { num: 3, text: "Years studying programming" },
-  { num: 5, text: "Projects completed" },
-  { num: 4, text: "Technologies learned" },
-  { num: 1, text: "Courses in progress" },
+  { num: 5, text: "Projects shipped" },
+  { num: 10, text: "Technologies in the stack" },
+  { num: 1, text: "Course in progress" },
 ];
