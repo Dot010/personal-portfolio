@@ -1,161 +1,5 @@
 "use client";
 
-import { info } from "console";
-import { title } from "process";
-import {
-  FaHtml5,
-  FaCss3,
-  FaJs,
-  FaReact,
-  FaFigma,
-  FaNodeJs,
-}
-  from "react-icons/fa";
-  
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
-
-// about
-
-type About = {
-  title: string;
-  description: string;
-  info: {
-    fieldName: string;
-    fieldvalue: string;
-  }[];
-}
-const about : About = {
-  title: "About me",
-  description:"I am a beginner Full Stack developer, currently studying at EBAC, focused on Python for back-end development and JavaScript/React for front-end. I am building practical projects to strengthen my skills and gain hands-on experience.",
-  info: [
-    {
-      fieldName: "Name",
-      fieldvalue: "Jonathan Carvalho",
-    },
-      {
-      fieldName: "E-mail",
-      fieldvalue: "jonathan2500@outlook.pt",
-    },
-       {
-      fieldName: "Freelance",
-      fieldvalue: "Available",
-    },
-        {
-      fieldName: "Languages",
-      fieldvalue: "Portuguese, English, Spanish",
-    } 
-  ]
-}
-type Education = {
-  icon: string;
-  title: string;
-  description: string;
-  items: {
-    institution: string;
-    course: string;
-    duration: string;
-  }[];
-}
-const education: Education = {
-  icon: "/assets/education.svg",
-  title: "My Education",
-  description: "I am a beginner Full Stack developer, currently studying at EBAC, focused on Python for back-end development and JavaScript/React for front-end. I am building practical projects to strengthen my skills and gain hands-on experience.",
-  items: [
-    {
-      institution: "EBAC - Escola Britânica de Artes e Tecnologia",
-      course: "Dev Full Stack Python",
-      duration: "2024 - Present",
-    },
-    {
-      institution: "IFSUL - Instituto Federal de Educação, Ciência e Tecnologia.",
-      course: "Informática para Internet",
-      duration: "2014 - 2017",
-    },
-    {
-      institution: "Universidade Federal do Pampa",
-      course: "Administração",
-      duration: "2021 - Present",
-    },
-  ],
-  
-};
-
-type Goals = {
-  title: string;
-  description: string;
-  items: {
-    goal: string;
-    deadline: string;
-    status: string;
-  }[]
-}
-const goals : Goals = {
-  title: "My Goals",
-  description: "My short and long terms goals as a developer.",
-  items: [
-    {
-      goal: "Get my first job as a Full Stack developer.", deadline: "2026", status: "Planned",
-
-    },
-      {
-      goal: "Master my skills in Front and Back-End.", deadline: "2026", status: "In Progress",
-
-    },
-        {
-      goal: "Contribute to an open source project.", deadline: "2026",  status: "Planned",
-
-    },
-          {
-      goal: "Work remotely for an international company.", deadline: "2026", status: "Planned",
-
-    }
-      
-  ]
-}
-
-type Skills = {
-  title: string;
-  description: string;
-  skillList: {
-    icon: string;
-    name: string;
-  }[];
-} 
-const skills = {
-  title: "My Skills",
-  description: "Here are some of my skills that I have acquired in the past and that I am currently learning to improve.",
-  skillList: [
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
-    {
-      icon: <FaCss3 />,
-      name: "css 3",
-    },
-    {
-      icon: <FaJs />,
-      name: "javascript",
-    },
-    {
-      icon: <FaReact />,
-      name: "react.js",
-    },
-    {
-      icon: <SiTailwindcss />,
-      name: "tailwind.css",
-    },
-    {
-      icon: <FaNodeJs/>,
-      name: "node.js",
-    },
-    {
-      icon: <FaFigma />,
-      name: "figma",
-    }
-  ]
-}
- 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import {
@@ -167,7 +11,7 @@ import {
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
-import { li } from "framer-motion/client";
+import { about, education, goals, skills } from "@/data/resume";
 
 const Resume = () => {
   return <motion.div initial={{ opacity: 0 }} animate={{
@@ -285,7 +129,7 @@ const Resume = () => {
                           <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex 
                           justify-center items-center group"> 
                             <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                              {skill.icon}</div>
+                              <skill.icon /></div>
                           </TooltipTrigger>
                           <TooltipContent>
                             <p className="capitalize">{skill.name}</p>
@@ -317,7 +161,7 @@ const Resume = () => {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       className="flex items-center justify-center xl:justify-start gap-4">
                       <span className="text-white/60 min-w-[120px]">{item.fieldName }</span>
-                      <span className="text-xl">{item.fieldvalue}</span>
+                      <span className="text-xl">{item.fieldValue}</span>
                     </motion.li>
 
                   )
