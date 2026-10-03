@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { FiArrowDown, FiArrowUpRight, FiDownload } from "react-icons/fi";
 
 import HeroLens from "@/components/fx/HeroLens";
+import { useMagnetic } from "@/hooks/useMagnetic";
 import { site, socials } from "@/data/site";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { onIntroDone } from "@/lib/intro";
@@ -13,6 +14,10 @@ const Hero = () => {
   const root = useRef<HTMLElement>(null);
   const clock = useRef<HTMLSpanElement>(null);
   const [lensReady, setLensReady] = useState(false);
+  const contactButton = useRef<HTMLAnchorElement>(null);
+  const cvButton = useRef<HTMLAnchorElement>(null);
+  useMagnetic(contactButton);
+  useMagnetic(cvButton);
 
   // Local time in the meta row, refreshed every 30 seconds.
   useEffect(() => {
@@ -131,12 +136,14 @@ const Hero = () => {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
+                ref={contactButton}
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold text-primary"
               >
                 Contact <FiArrowUpRight className="text-base" />
               </a>
               <a
+                ref={cvButton}
                 href={site.cv}
                 download
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-sm"
