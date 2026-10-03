@@ -62,7 +62,7 @@ export const projects: Project[] = [
     { name: "Styled Components" }
   ],
   image: "https://api.microlink.io?url=https://countdown-rockseat.vercel.app/&screenshot=true&meta=false&embed=screenshot.url",
-  live: "https://countdown-rockseat-ap6qtmi34-jonathans-projects-19acbde0.vercel.app/",
+  live: "https://countdown-rockseat.vercel.app/",
   github: "",
 },
   {
