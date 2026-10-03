@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { FiArrowDown, FiArrowUpRight, FiDownload } from "react-icons/fi";
 
 import { site, socials } from "@/data/site";
@@ -9,6 +9,18 @@ import { scramble } from "@/lib/scramble";
 
 const Hero = () => {
   const root = useRef<HTMLElement>(null);
+  const clock = useRef<HTMLSpanElement>(null);
+
+  // Local time in the meta row, refreshed every 30 seconds.
+  useEffect(() => {
+    const format = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: site.timeZone });
+    const tick = () => {
+      if (clock.current) clock.current.textContent = format.format(new Date());
+    };
+    tick();
+    const id = window.setInterval(tick, 30_000);
+    return () => window.clearInterval(id);
+  }, []);
 
   // Intro: grid lines draw down, the first name rises letter by letter, the rest fades in.
   useGSAP(
@@ -72,7 +84,7 @@ const Hero = () => {
           <span className="hero-fig">[ Fig. 00 — Blank sheet ]</span>
           <span>{site.role}</span>
           <span>
-            {site.location} · <span className="hero-clock tabular-nums">--:--</span>
+            {site.location} · <span ref={clock} className="tabular-nums">--:--</span>
           </span>
           <span className="flex items-center gap-2.5 text-white">
             <i className="size-2 rounded-full bg-accent motion-safe:animate-ping-soft" />
