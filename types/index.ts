@@ -85,3 +85,27 @@ export type NavLink = {
   name: string;
   id: string;
 };
+
+export type EducationItem = {
+  period: string;
+  course: string;
+  institution: string;
+  /** Still studying there: shows a "Now" badge. */
+  current?: boolean;
+};
+
+export type Goal = {
+  goal: string;
+  status: "In progress" | "Planned" | "Done";
+};
+
+export type RecordItem = {
+  title: string;
+  detail: string;
+  state: "Shipped" | "Now" | "Next";
+};
+
+export type StackLevel = {
+  level: "Daily" | "Working" | "Familiar";
+  items: { name: string; highlight?: boolean }[];
+};
