@@ -4,10 +4,37 @@ import { useRef, useState } from "react";
 
 import ContactForm from "@/components/contact/ContactForm";
 import { site } from "@/data/site";
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { scramble } from "@/lib/scramble";
 
 const Contact = () => {
+  const root = useRef<HTMLElement>(null);
   const emailRef = useRef<HTMLSpanElement>(null);
   const [copied, setCopied] = useState(false);
+
+  // The big headline drifts sideways with the scroll; the label scrambles in.
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          ".contact-huge",
+          { xPercent: 12 },
+          {
+            xPercent: -28,
+            ease: "none",
+            scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true },
+          },
+        );
+        const label = root.current?.querySelector<HTMLElement>("[data-fig]");
+        if (label) {
+          ScrollTrigger.create({ trigger: label, start: "top 90%", once: true, onEnter: () => scramble(label) });
+        }
+      });
+      return () => mm.revert();
+    },
+    { scope: root },
+  );
 
   const copyEmail = async () => {
     try {
@@ -25,9 +52,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="overflow-hidden py-[clamp(80px,12vw,140px)]">
+    <section ref={root} id="contact" className="overflow-hidden py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
-        <span className="label">[ Fig. 08 — Contact ]</span>
+        <span data-fig className="label">[ Fig. 08 — Contact ]</span>
       </div>
 
       <h2
