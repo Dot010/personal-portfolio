@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef,useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
 import SectionHead from "@/components/common/SectionHead";
@@ -13,6 +13,41 @@ const Work = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [selected, setSelected] = useState(0);
   const [caseOpen, setCaseOpen] = useState(false);
+
+  const list = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let x = -1;
+    let y = -1;
+    const check = () => {
+      const el = list.current;
+      if (!el || x < 0) return;
+      const r = el.getBoundingClientRect();
+      if (x < r.left || x > r.right || y < r.top || y > r.bottom) {
+        setHovered(null);
+        return;
+      }
+      const row = document.elementFromPoint(x, y)?.closest("li[data-index]");
+      setHovered(row ? Number((row as HTMLElement).dataset.index) : null);
+    };
+    const onMove = (e: PointerEvent) => {
+      x = e.clientX;
+      y = e.clientY;
+    };
+    const hide = () => {
+      x = -1;
+      setHovered(null);
+    };
+    window.addEventListener("pointermove", onMove, { passive: true });
+    window.addEventListener("scroll", check, { passive: true });
+    document.documentElement.addEventListener("pointerleave", hide);
+    window.addEventListener("blur", hide);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("scroll", check);
+      document.documentElement.removeEventListener("pointerleave", hide);
+      window.removeEventListener("blur", hide);
+    };
+  }, []);
 
   const openCase = (index: number) => {
     setSelected(index);

@@ -43,10 +43,10 @@ export default function CursorPreview({ projects, active }: CursorPreviewProps) 
     const el = box.current;
     if (!el) return;
     if (active === null) {
-      gsap.to(el, { scale: 0, autoAlpha: 0, duration: 0.4, ease: "power3.in" });
+      gsap.to(el, { scale: 0, autoAlpha: 0, duration: 0.4, ease: "power3.in", overwrite: true });
       return;
     }
-    gsap.to(el, { scale: 1, autoAlpha: 1, duration: 0.5, ease: "expo.out" });
+    gsap.to(el, { scale: 1, autoAlpha: 1, duration: 0.5, ease: "expo.out", overwrite: true });
     shots.current.forEach((shot, i) => gsap.set(shot, { zIndex: i === active ? 2 : 1 }));
     gsap.fromTo(
       shots.current[active],
