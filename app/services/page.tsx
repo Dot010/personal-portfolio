@@ -3,39 +3,8 @@
 import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { services } from "@/data/services";
 
-type Service = {
-  title: string;
-  description: string;
-  num: number;
-  href: string;
-};
-const services: Service[] = [
-  { 
-    num: 1, 
-    title: "Web Development", 
-    description: "Developing modern web applications using React, TypeScript, and Styled Components.", 
-    href: "/work"
-  },
-  { 
-    num: 2, 
-    title: "Responsive & Modern Styling", 
-    description: "Creating fluid, mobile-first layouts with CSS3, SASS, and modern CSS-in-JS libraries.", 
-    href: "/work" 
-  },
-  { 
-    num: 3, 
-    title: "API & State Management", 
-    description: "Connecting React applications to REST APIs (Ajax) and managing state with Redux.", 
-    href: "/work" 
-  },
-  { 
-    num: 4, 
-    title: "Version Control & Workflow", 
-    description: "Structuring project architectures, automating builds, and managing code with Git & GitHub.", 
-    href: "/work" 
-  }
-];
 const Services = () => {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">

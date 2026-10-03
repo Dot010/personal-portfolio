@@ -8,3 +8,10 @@ export type Project = {
   live: string;
   github?: string;
 };
+
+export type Service = {
+  title: string;
+  description: string;
+  num: number;
+  href: string;
+};
