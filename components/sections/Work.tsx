@@ -13,7 +13,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-import Link from "next/link";
 import Image from "next/image";  
 import WorkSliderBtns from "@/components/common/WorkSliderBtns";
 import { projects } from "@/data/projects";
@@ -60,7 +59,7 @@ const Work = () => {
 
       
             <div className="flex items-center gap-4">
-              <Link href={project.live}>
+              <a href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} live`}>
                 <TooltipProvider delayDuration={100}>
                   <Tooltip>
                     <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -69,10 +68,10 @@ const Work = () => {
                     <TooltipContent><p>Live project</p></TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
-              </Link>
+              </a>
 
               {project.github && (
-                <Link href={project.github}>
+                <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`Open ${project.title} repository`}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -81,7 +80,7 @@ const Work = () => {
                       <TooltipContent><p>Github Repository</p></TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
-                </Link>
+                </a>
               )}
             </div>
           </div>
