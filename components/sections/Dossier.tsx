@@ -6,6 +6,7 @@ import SectionHead from "@/components/common/SectionHead";
 import Reveal from "@/components/fx/Reveal";
 import { aboutText, education, facts, goals, record } from "@/data/dossier";
 import { arsenal } from "@/data/stack";
+import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 const levelColor = { Daily: "text-accent", Working: "text-white/75", Familiar: "text-white/55" } as const;
@@ -17,6 +18,29 @@ const recordBadge = {
 
 const Dossier = () => {
   const root = useRef<HTMLElement>(null);
+
+  // The about paragraph lights up word by word as it scrolls through the viewport.
+  useGSAP(
+    () => {
+      const mm = gsap.matchMedia();
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const split = SplitText.create(".dossier-about", { type: "words" });
+        gsap.fromTo(
+          split.words,
+          { opacity: 0.18 },
+          {
+            opacity: 1,
+            stagger: 0.1,
+            ease: "none",
+            scrollTrigger: { trigger: ".dossier-about", start: "top 80%", end: "bottom 45%", scrub: true },
+          },
+        );
+        return () => split.revert();
+      });
+      return () => mm.revert();
+    },
+    { scope: root },
+  );
 
   return (
     <section ref={root} id="dossier" className="py-[clamp(80px,12vw,140px)]">
