@@ -3,7 +3,7 @@
 Este é o meu portfólio profissional, desenvolvido para exibir meus projetos, habilidades e trajetória como desenvolvedor Full-Stack. O foco principal foi criar uma interface moderna, responsiva e com alta performance utilizando as melhores práticas do ecossistema React.
 
 ## 🔗 Demonstração
-**Confira o site online:** [https://personal-landing-page-dot010.vercel.app/](https://personal-landing-page-dot010.vercel.app/) *(Confirme se este é o seu link final)*
+**Confira o site online:** [https://personal-landing-page-dot010.vercel.app/](https://personal-landing-page-dot010.vercel.app/)
 
 ---
 
@@ -42,7 +42,8 @@ Durante o desenvolvimento, foquei em resolver problemas reais de arquitetura Fro
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/Dot010/personal_landing_page.git](https://github.com/Dot010/personal_landing_page.git)
+    git clone https://github.com/Dot010/personal-portfolio.git
+    cd personal-portfolio
     ```
 2.  **Instale as dependências:**
     ```bash
@@ -63,9 +64,3 @@ Durante o desenvolvimento, foquei em resolver problemas reais de arquitetura Fro
 
 ---
 Desenvolvido com 💙 por Jonathan Carvalho
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
