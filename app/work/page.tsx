@@ -15,7 +15,7 @@ import {
 
 import Link from "next/link";
 import Image from "next/image";  
-import WorkSliderBtns from "@/components/WorkSliderBtns";
+import WorkSliderBtns from "@/components/common/WorkSliderBtns";
 import { projects } from "@/data/projects";
 
 const Work = () => {
