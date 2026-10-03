@@ -1,0 +1,83 @@
+import type { Project } from "@/types";
+
+export const projects: Project[] = [
+  {
+    num: "01",
+    category: "Full-Stack",
+    title: "SelfCheckApp",
+    description: "SelfCheckApp was developed to provide a modern, practical, and efficient ordering experience for restaurants.",
+    stack: [
+      { name: "Next.js" },
+      { name: "TypeScript" },
+      { name: "Tailwind CSS" },
+      { name: "Prisma ORM" },
+      { name: "PostgreSQL" },
+      { name: "Stripe" },
+    ],
+    image: "https://api.microlink.io?url=https://self-check-app.vercel.app/fsw-donalds&screenshot=true&meta=false&embed=screenshot.url",  
+    live: "https://self-check-app.vercel.app/fsw-donalds",
+    github: "https://github.com/Dot010/SelfCheckApp",
+  },
+  {
+    num: "02",
+    category: "Frontend",
+    title: "Clone Disney+",
+    description: "A responsive Disney+ landing page clone, focusing on mobile-first layout, style modularization, and build automation.",
+    stack: [
+      { name: "HTML5" },
+      { name: "CSS3" },
+      { name: "Sass" },
+      { name: "JavaScript" },
+      { name: "Gulp" },
+    ],
+    image: "https://api.microlink.io?url=https://clone-disney-plus-tau-two.vercel.app/&screenshot=true&meta=false&embed=screenshot.url",
+    live: "https://clone-disney-plus-tau-two.vercel.app/",
+    github: "https://github.com/Dot010/CloneDisneyPlus",
+  },
+  {
+    num: "03",
+    category: "Full-Stack",
+    title: "PsyCare",
+    description: "[IN DEVELOPMENT] Interactive mental health platform featuring emotional journals, habit tracking, appointments, and real-time user personalization.",
+    stack: [
+      { name: "Next.js" },
+      { name: "TypeScript" },
+      { name: "Tailwind CSS" },
+      { name: "Shadcn UI" },
+      { name: "Context API" },
+    ],
+    image: "https://api.microlink.io?url=https://psycare-seven.vercel.app/dashboard/home/&screenshot=true&meta=false&embed=screenshot.url",
+    live: "https://psycare-seven.vercel.app",
+    github: "https://github.com/Dot010/Psycare",
+  },
+{
+  num: "04",
+  category: "Frontend",
+  title: "Countdown",
+  description: "Um aplicativo de timer/pomodoro desenvolvido para gerenciar o foco e as tarefas de forma interativa e dinâmica.",
+  stack: [
+    { name: "React" },
+    { name: "TypeScript" },
+    { name: "Redux Toolkit" }, 
+    { name: "Styled Components" }
+  ],
+  image: "https://api.microlink.io?url=https://countdown-rockseat.vercel.app/&screenshot=true&meta=false&embed=screenshot.url",
+  live: "https://countdown-rockseat-ap6qtmi34-jonathans-projects-19acbde0.vercel.app/",
+  github: "",
+},
+  {
+    num: "05",
+    category: "Frontend",
+    title: "Apex Sports",
+    description: "A sports e-commerce platform focused on interactive product displays, filtering, and seamless cart operations.",
+    stack: [
+      { name: "React" },
+      { name: "TypeScript" },
+      { name: "Redux Toolkit" },
+      { name: "Styled Components" },
+    ],
+    image: "https://api.microlink.io?url=https://apex-sports-seven.vercel.app/&screenshot=true&meta=false&embed=screenshot.url",
+    live: "https://apex-sports-seven.vercel.app/",
+    github: "https://github.com/Dot010/Apex-Sports",
+  },
+];
