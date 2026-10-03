@@ -1,7 +1,7 @@
 "use client";
 import "swiper/css";
 import "swiper/css/bundle";
-import { motion } from "framer-motion";
+import Reveal from "@/components/fx/Reveal";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
@@ -26,11 +26,9 @@ const Work = () => {
   };
 
   return (
-    <motion.section
+    <Reveal
+      as="section"
       id="work"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
-      viewport={{ once: true, amount: 0.2 }}
       className="flex flex-col md:justify-center py-12 xl:px-0"
     >
       <div className="container mx-auto">
@@ -127,7 +125,7 @@ const Work = () => {
 
         </div>
       </div>
-    </motion.section>
+    </Reveal>
   );
 };
 
