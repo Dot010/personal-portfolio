@@ -6,5 +6,5 @@ export type Project = {
   stack: { name: string }[];
   image: string;
   live: string;
-  github: string;
+  github?: string;
 };

@@ -63,7 +63,6 @@ export const projects: Project[] = [
   ],
   image: "https://api.microlink.io?url=https://countdown-rockseat.vercel.app/&screenshot=true&meta=false&embed=screenshot.url",
   live: "https://countdown-rockseat.vercel.app/",
-  github: "",
 },
   {
     num: "05",
