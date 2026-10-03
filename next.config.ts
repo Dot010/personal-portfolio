@@ -32,7 +32,6 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  transpilePackages: ["swiper"],
   images: {
     remotePatterns: [
       {

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Unbounded } from "next/font/google";
-import "swiper/css";
-import "swiper/css/bundle";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
