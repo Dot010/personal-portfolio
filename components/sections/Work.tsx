@@ -1,21 +1,26 @@
 "use client";
 
+import { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 
 import SectionHead from "@/components/common/SectionHead";
 import Reveal from "@/components/fx/Reveal";
+import CursorPreview from "@/components/work/CursorPreview";
 import { projects } from "@/data/projects";
 
 const Work = () => {
+  const [hovered, setHovered] = useState<number | null>(null);
+
   return (
     <section id="work" className="py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead title="Selected work" fig="Fig. 02 — Work" />
         <p className="-mt-7 mb-9 text-[13px] text-white/60">Hover a row to preview the work. Click to open it.</p>
 
+        <div onPointerLeave={() => setHovered(null)}>
         <Reveal as="ul" stagger=":scope > li" y={30} className="border-t border-white/15">
-          {projects.map((project) => (
-            <li key={project.title}>
+          {projects.map((project, i) => (
+            <li key={project.title} onPointerEnter={() => setHovered(i)}>
               <a
                 href={project.live}
                 target="_blank"
@@ -40,7 +45,9 @@ const Work = () => {
             </li>
           ))}
         </Reveal>
+        </div>
       </div>
+      <CursorPreview projects={projects} active={hovered} />
     </section>
   );
 };
