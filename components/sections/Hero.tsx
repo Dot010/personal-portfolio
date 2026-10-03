@@ -10,7 +10,7 @@ import { site } from "@/data/site";
 
 const Hero = () => {
   return (
-    <section className="h-full">
+    <section id="home" className="h-full">
       <div className="container mx-auto h-full">
         <div
           className="flex flex-col xl:flex-row items-center justify-between

@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 import { about, education, goals, skills } from "@/data/resume";
 
 const Resume = () => {
-  return <motion.div initial={{ opacity: 0 }} animate={{
+  return <motion.section id="resume" initial={{ opacity: 0 }} animate={{
     opacity: 1, transition: {
       delay: 2.4,
       duration: 0.4,
@@ -176,7 +176,7 @@ const Resume = () => {
 
           </Tabs>  
     </div>
-    </motion.div>
+    </motion.section>
     
   }
 
