@@ -30,7 +30,13 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       if (!target) return;
 
       event.preventDefault();
-      lenis.scrollTo(target, { duration: 1.2 });
+      // Use the layout position (offsetTop) so reveal transforms don't shift the target.
+      let top = 0;
+      for (let node: HTMLElement | null = target; node; node = node.offsetParent as HTMLElement | null) {
+        top += node.offsetTop;
+      }
+      const margin = Number.parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+      lenis.scrollTo(top - margin, { duration: 1.2 });
       history.pushState(null, "", url.hash);
     };
     document.addEventListener("click", onClick, { capture: true });
