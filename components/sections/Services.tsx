@@ -1,20 +1,13 @@
-"use client";
-
 import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import Reveal from "@/components/fx/Reveal";
 import { services } from "@/data/services";
 
 const Services = () => {
   return (
     <section id="services" className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-15"
-        >
+        <Reveal stagger=":scope > div" className="grid grid-cols-1 md:grid-cols-2 gap-15">
           {services.map((service, index) => {
             return (
               <div
@@ -53,7 +46,7 @@ const Services = () => {
               </div>
             );
           })}
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );
