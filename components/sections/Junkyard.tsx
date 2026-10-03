@@ -6,7 +6,7 @@ import { junkyard } from "@/data/projects";
 
 const Junkyard = () => {
   return (
-    <section id="junk" className="py-[clamp(80px,12vw,140px)]">
+    <section id="junk" data-fig="Fig. 04 — Junkyard" className="py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead title="Junkyard" fig="Fig. 04 — Dead demos & sketches" />
         <p className="-mt-7 mb-9 text-[13px] text-white/60">

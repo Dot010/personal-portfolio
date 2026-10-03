@@ -20,7 +20,7 @@ const Work = () => {
   };
 
   return (
-    <section id="work" className="py-[clamp(80px,12vw,140px)]">
+    <section id="work" data-fig="Fig. 02 — Work" className="py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead title="Selected work" fig="Fig. 02 — Work" />
         <p className="-mt-7 mb-9 text-[13px] text-white/60">Hover a row to preview the work. Click to open the case file.</p>

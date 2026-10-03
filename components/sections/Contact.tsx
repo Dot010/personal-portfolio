@@ -52,7 +52,7 @@ const Contact = () => {
   };
 
   return (
-    <section ref={root} id="contact" className="overflow-hidden py-[clamp(80px,12vw,140px)]">
+    <section ref={root} id="contact" data-fig="Fig. 08 — Contact" className="overflow-hidden py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <span data-fig className="label">[ Fig. 08 — Contact ]</span>
       </div>

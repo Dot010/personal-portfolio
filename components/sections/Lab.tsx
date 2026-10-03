@@ -4,7 +4,7 @@ import { labProjects } from "@/data/projects";
 
 const Lab = () => {
   return (
-    <section id="lab" className="py-[clamp(80px,12vw,140px)]">
+    <section id="lab" data-fig="Fig. 03 — Lab" className="py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead title="The lab" fig="Fig. 03 — Work in progress" />
 

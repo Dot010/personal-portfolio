@@ -56,7 +56,7 @@ const Services = () => {
   );
 
   return (
-    <section ref={root} id="services" className="overflow-hidden py-[clamp(80px,12vw,140px)]">
+    <section ref={root} id="services" data-fig="Fig. 01 — Services" className="overflow-hidden py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead title="What I do" fig="Fig. 01 — Services" />
         <p className="label -mt-6 mb-10 hidden min-[900px]:block">Keep scrolling: the cards slide sideways →</p>

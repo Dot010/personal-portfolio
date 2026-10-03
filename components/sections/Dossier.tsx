@@ -74,7 +74,7 @@ const Dossier = () => {
   );
 
   return (
-    <section ref={root} id="dossier" className="py-[clamp(80px,12vw,140px)]">
+    <section ref={root} id="dossier" data-fig="Fig. 05 — Dossier" className="py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead title="Dossier" fig="Fig. 05 — About" />
 
