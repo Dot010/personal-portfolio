@@ -7,7 +7,7 @@ import SectionHead from "@/components/common/SectionHead";
 import Reveal from "@/components/fx/Reveal";
 import CaseDialog from "@/components/work/CaseDialog";
 import CursorPreview from "@/components/work/CursorPreview";
-import { projects } from "@/data/projects";
+import { selectedWork as projects } from "@/data/projects";
 
 const Work = () => {
   const [hovered, setHovered] = useState<number | null>(null);

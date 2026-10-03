@@ -1,6 +1,8 @@
 import type { IconType } from "react-icons";
 
 export type Project = {
+  /** Which section lists the project. */
+  group: "selected" | "lab" | "junk";
   num: string;
   category: string;
   title: string;
@@ -14,6 +16,10 @@ export type Project = {
   status: "Live" | "In development";
   /** Short bullet points shown in the case file. */
   highlights: string[];
+  /** Short bracketed tag for lab and junkyard cards, e.g. "study". */
+  tag?: string;
+  /** One-liner for junkyard cards. */
+  note?: string;
 };
 
 export type Service = {
