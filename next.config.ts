@@ -44,6 +44,13 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
+  async redirects() {
+    return ["services", "resume", "work", "contact"].map((section) => ({
+      source: `/${section}`,
+      destination: `/#${section}`,
+      permanent: true,
+    }));
+  },
 };
 
 export default nextConfig;
