@@ -2,6 +2,7 @@ import Stats from "@/components/common/Stats";
 import Marquee from "@/components/fx/Marquee";
 import Contact from "@/components/sections/Contact";
 import Hero from "@/components/sections/Hero";
+import Lab from "@/components/sections/Lab";
 import Resume from "@/components/sections/Resume";
 import Services from "@/components/sections/Services";
 import Work from "@/components/sections/Work";
@@ -16,6 +17,7 @@ export default function Home() {
       <Services />
       <Resume />
       <Work />
+      <Lab />
       <Contact />
     </main>
   );
