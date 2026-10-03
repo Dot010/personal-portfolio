@@ -7,8 +7,6 @@ import "./globals.css";
 
 // components
 import Header from "@/components/layout/Header";
-import PageTransition from "@/components/layout/PageTransition";
-import StairTransition from "@/components/layout/StairTransition";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 
 const jetBrainsMono = JetBrains_Mono({
@@ -39,10 +37,8 @@ export default function RootLayout({
       <body className={`${jetBrainsMono.className} antialiased`}>
         <SmoothScroll>
           <Header />
-          <StairTransition />
-          <PageTransition>{children}</PageTransition>
+          {children}
         </SmoothScroll>
-      
       </body>
     </html>
   );
