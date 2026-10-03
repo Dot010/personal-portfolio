@@ -34,7 +34,7 @@ export default function ContactForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="grid grid-cols-1 gap-5 rounded-2xl bg-surface md:grid-cols-2 p-[clamp(20px,4vw,36px)]"
+      className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-5 rounded-2xl bg-surface p-[clamp(20px,4vw,36px)]"
     >
       <label htmlFor="contact-name" className="flex flex-col gap-2 text-[13px] text-white/70">
         Name
