@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
+import Reveal from "@/components/fx/Reveal";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,11 +39,9 @@ const Contact = () => {
   const [service, setService] = React.useState("");
 
   return (
-    <motion.section
+    <Reveal
+      as="section"
       id="contact"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
-      viewport={{ once: true, amount: 0.2 }}
       className="py-10"
     >
       <div className="container mx-auto">
@@ -137,7 +135,7 @@ const Contact = () => {
 
         </div>
       </div>
-    </motion.section>
+    </Reveal>
   );
 };
 
