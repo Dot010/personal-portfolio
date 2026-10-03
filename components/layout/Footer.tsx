@@ -28,7 +28,7 @@ const Footer = () => {
           </b>
         </div>
       </div>
-      <div className="wrap flex flex-wrap justify-between gap-4 border-t border-white/10 py-7 text-xs text-white/60">
+      <div className="wrap flex flex-wrap justify-between gap-4 border-t border-white/10 pt-7 pb-[calc(96px+env(safe-area-inset-bottom,0px))] text-xs text-white/60">
         <span>
           © {new Date().getFullYear()} {site.name}
         </span>
