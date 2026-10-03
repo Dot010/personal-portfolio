@@ -67,7 +67,7 @@
 
     background: var(--color-background);
     color: var(--color-foreground);
-    @apply leading-loose antialiased;
+    @apply text-[15px] leading-[1.7] antialiased;
   }
   .h1 {
     @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold; 
