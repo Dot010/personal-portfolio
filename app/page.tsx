@@ -5,6 +5,7 @@ import Dossier from "@/components/sections/Dossier";
 import Hero from "@/components/sections/Hero";
 import Junkyard from "@/components/sections/Junkyard";
 import Lab from "@/components/sections/Lab";
+import Principles from "@/components/sections/Principles";
 import Services from "@/components/sections/Services";
 import Work from "@/components/sections/Work";
 import { marqueeStack } from "@/data/stack";
@@ -20,6 +21,7 @@ export default function Home() {
       <Lab />
       <Junkyard />
       <Dossier />
+      <Principles />
       <Contact />
     </main>
   );
