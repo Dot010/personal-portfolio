@@ -9,6 +9,11 @@ export type Project = {
   image: string;
   live: string;
   github?: string;
+  /** Who did what, e.g. "Solo — front-end". */
+  role: string;
+  status: "Live" | "In development";
+  /** Short bullet points shown in the case file. */
+  highlights: string[];
 };
 
 export type Service = {
