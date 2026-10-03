@@ -24,11 +24,11 @@ export const socials: SocialLink[] = [
 ];
 
 export const navLinks: NavLink[] = [
-  { name: "home", id: "home" },
-  { name: "services", id: "services" },
-  { name: "work", id: "work" },
-  { name: "lab", id: "lab" },
-  { name: "dossier", id: "dossier" },
-  { name: "play", id: "break" },
-  { name: "contact", id: "contact" },
+  { name: "home", id: "home", num: "00" },
+  { name: "services", id: "services", num: "01" },
+  { name: "work", id: "work", num: "02" },
+  { name: "lab", id: "lab", num: "03" },
+  { name: "dossier", id: "dossier", num: "05" },
+  { name: "play", id: "break", num: "07" },
+  { name: "contact", id: "contact", num: "08" },
 ];

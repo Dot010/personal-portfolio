@@ -49,6 +49,8 @@ export type SocialLink = {
 export type NavLink = {
   name: string;
   id: string;
+  /** Figure number of the section, shown in the menu. */
+  num: string;
 };
 
 export type EducationItem = {

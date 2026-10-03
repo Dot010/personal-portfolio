@@ -95,7 +95,7 @@ export default function Menu({ open, onClose }: MenuProps) {
       </div>
 
       <nav aria-label="Sections" className="wrap flex flex-col py-6">
-        {navLinks.map((link, i) => (
+        {navLinks.map((link) => (
           <a
             key={link.id}
             href={`#${link.id}`}
@@ -109,7 +109,7 @@ export default function Menu({ open, onClose }: MenuProps) {
             className="group flex items-baseline gap-4.5 overflow-hidden border-b border-white/10 py-1.5"
           >
             <b className={cn("w-[2.4ch] shrink-0 text-[13px] font-normal", active === link.id ? "text-accent" : "text-white/60")}>
-              {String(i).padStart(2, "0")}
+              {link.num}
             </b>
             <span
               className={cn(
