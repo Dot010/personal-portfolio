@@ -38,7 +38,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
         top += node.offsetTop;
       }
       const margin = Number.parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
-      lenis.scrollTo(top - margin, { duration: 1.2 });
+      lenis.scrollTo(top - margin, { duration: 1.2, force: true });
       history.pushState(null, "", url.hash);
     };
     document.addEventListener("click", onClick, { capture: true });
