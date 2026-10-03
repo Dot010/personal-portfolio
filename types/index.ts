@@ -15,7 +15,8 @@ export type Service = {
   title: string;
   description: string;
   num: number;
-  href: string;
+  /** Shown in the accent colour. */
+  highlight?: boolean;
 };
 
 export type InfoField = {
