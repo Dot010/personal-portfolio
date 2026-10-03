@@ -32,10 +32,6 @@ const about : About = {
       fieldName: "Name",
       fieldvalue: "Jonathan Carvalho",
     },
-     {
-      fieldName: "Phone",
-      fieldvalue: "(+55) 55 99226-0711",
-    },
       {
       fieldName: "E-mail",
       fieldvalue: "jonathan2500@outlook.pt",
