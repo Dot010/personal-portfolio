@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiArrowDown, FiArrowUpRight, FiDownload } from "react-icons/fi";
 
+import HeroLens from "@/components/fx/HeroLens";
 import { site, socials } from "@/data/site";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 import { scramble } from "@/lib/scramble";
@@ -10,6 +11,7 @@ import { scramble } from "@/lib/scramble";
 const Hero = () => {
   const root = useRef<HTMLElement>(null);
   const clock = useRef<HTMLSpanElement>(null);
+  const [lensReady, setLensReady] = useState(false);
 
   // Local time in the meta row, refreshed every 30 seconds.
   useEffect(() => {
@@ -28,7 +30,7 @@ const Hero = () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const split = SplitText.create(".hero-first", { type: "chars" });
-        const tl = gsap.timeline({ delay: 0.15 });
+        const tl = gsap.timeline({ delay: 0.15, onComplete: () => setLensReady(true) });
         tl.from(".hero-grid span", { scaleY: 0, duration: 1.2, ease: "expo.out", stagger: 0.08 })
           .from(split.chars, { yPercent: 110, duration: 0.9, ease: "expo.out", stagger: 0.04 }, "<")
           .from(".hero-last", { xPercent: -6, autoAlpha: 0, duration: 1, ease: "expo.out" }, "<0.25")
@@ -106,6 +108,7 @@ const Hero = () => {
               {site.lastName}
             </span>
           </span>
+          <HeroLens active={lensReady} />
         </h1>
 
         <div className="hero-foot mt-18 grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] items-end gap-x-6 gap-y-8">
