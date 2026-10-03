@@ -38,6 +38,25 @@ Durante o desenvolvimento, foquei em resolver problemas reais de arquitetura Fro
 
 ---
 
+## 🗂️ Estrutura do projeto
+
+```
+app/                 → layout, página única e estilos globais
+components/
+  sections/          → Hero, Services, Resume, Work, Contact
+  layout/            → Header, navegação e transições
+  common/            → componentes compartilhados (Social, Stats, Photo…)
+  ui/                → componentes base (shadcn/ui)
+data/                → conteúdo do site (projetos, serviços, currículo, links)
+hooks/               → hooks reutilizáveis
+types/               → tipos TypeScript compartilhados
+public/assets/       → foto e currículo em PDF
+```
+
+Para atualizar o conteúdo (projetos, serviços, formação, links), edite apenas os arquivos em `data/`.
+
+---
+
 ## 📦 Como rodar o projeto localmente
 
 1.  **Clone o repositório:**
