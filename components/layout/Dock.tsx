@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 import { useMagnetic } from "@/hooks/useMagnetic";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
-import { onIntroDone } from "@/lib/intro";
+import { onIntroDone, onIntroReplay } from "@/lib/intro";
 
 type DockProps = {
   menuOpen: boolean;
@@ -52,8 +52,19 @@ export default function Dock({ menuOpen, onMenu }: DockProps) {
       // Slide in once the intro has played.
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.set(root.current, { y: 90, autoAlpha: 0 });
-        return onIntroDone(() => gsap.to(root.current, { y: 0, autoAlpha: 1, duration: 0.9, ease: "expo.out" }));
+        const enter = () => {
+          gsap.set(root.current, { y: 90, autoAlpha: 0 });
+          return onIntroDone(() => gsap.to(root.current, { y: 0, autoAlpha: 1, duration: 0.9, ease: "expo.out" }));
+        };
+        let stop = enter();
+        const offReplay = onIntroReplay(() => {
+          stop();
+          stop = enter();
+        });
+        return () => {
+          stop();
+          offReplay();
+        };
       });
       return () => mm.revert();
     },

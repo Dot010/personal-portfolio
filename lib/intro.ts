@@ -15,3 +15,16 @@ export const onIntroDone = (callback: () => void) => {
   window.addEventListener(EVENT, callback, { once: true });
   return () => window.removeEventListener(EVENT, callback);
 };
+
+const REPLAY = "intro:replay";
+
+/** Plays the loader and hero intro again (footer "Replay intro"). */
+export const replayIntro = () => {
+  delete document.documentElement.dataset.intro;
+  window.dispatchEvent(new Event(REPLAY));
+};
+
+export const onIntroReplay = (callback: () => void) => {
+  window.addEventListener(REPLAY, callback);
+  return () => window.removeEventListener(REPLAY, callback);
+};

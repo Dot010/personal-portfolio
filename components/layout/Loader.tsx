@@ -3,7 +3,7 @@
 import { useRef } from "react";
 
 import { gsap, useGSAP } from "@/lib/gsap";
-import { markIntroDone } from "@/lib/intro";
+import { markIntroDone, onIntroReplay } from "@/lib/intro";
 import { getLenis } from "@/lib/lenis";
 
 /** Counts 00 → 100, then lifts like a curtain and hands over to the hero intro. */
@@ -14,32 +14,40 @@ export default function Loader() {
 
   useGSAP(
     () => {
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduce) {
-        gsap.set(root.current, { display: "none" });
-        markIntroDone();
-        return;
-      }
+      const play = () => {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) {
+          gsap.set(root.current, { display: "none" });
+          markIntroDone();
+          return;
+        }
 
-      window.scrollTo(0, 0);
-      requestAnimationFrame(() => getLenis()?.stop());
-      const progress = { value: 0 };
+        const lenis = getLenis();
+        if (lenis) lenis.scrollTo(0, { immediate: true, force: true });
+        else window.scrollTo(0, 0);
+        requestAnimationFrame(() => getLenis()?.stop());
+        gsap.set(root.current, { display: "flex", yPercent: 0 });
+        const progress = { value: 0 };
 
-      gsap
-        .timeline({ onComplete: () => getLenis()?.start() })
-        .to(progress, {
-          value: 100,
-          duration: 1.1,
-          ease: "power2.inOut",
-          onUpdate: () => {
-            const v = Math.round(progress.value);
-            if (count.current) count.current.textContent = String(v).padStart(2, "0");
-            if (bar.current) bar.current.style.width = `${v}%`;
-          },
-        })
-        .to(root.current, { yPercent: -100, duration: 0.8, ease: "expo.inOut" }, "+=0.1")
-        .add(markIntroDone, "-=0.45")
-        .set(root.current, { display: "none" });
+        gsap
+          .timeline({ onComplete: () => getLenis()?.start() })
+          .to(progress, {
+            value: 100,
+            duration: 1.1,
+            ease: "power2.inOut",
+            onUpdate: () => {
+              const v = Math.round(progress.value);
+              if (count.current) count.current.textContent = String(v).padStart(2, "0");
+              if (bar.current) bar.current.style.width = `${v}%`;
+            },
+          })
+          .to(root.current, { yPercent: -100, duration: 0.8, ease: "expo.inOut" }, "+=0.1")
+          .add(markIntroDone, "-=0.45")
+          .set(root.current, { display: "none" });
+      };
+
+      play();
+      return onIntroReplay(play);
     },
     { scope: root },
   );

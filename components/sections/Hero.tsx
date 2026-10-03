@@ -7,7 +7,7 @@ import HeroLens from "@/components/fx/HeroLens";
 import { useMagnetic } from "@/hooks/useMagnetic";
 import { site, socials } from "@/data/site";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
-import { onIntroDone } from "@/lib/intro";
+import { onIntroDone, onIntroReplay } from "@/lib/intro";
 import { scramble } from "@/lib/scramble";
 
 const Hero = () => {
@@ -46,9 +46,17 @@ const Hero = () => {
             if (fig) scramble(fig);
           }, "<")
           .from(".hero-foot > *, .hero-bottom", { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.08, ease: "power3.out" }, "<0.2");
-        const stop = onIntroDone(() => tl.play());
+        let stop = onIntroDone(() => tl.play());
+        // Footer "Replay intro": hide everything again and wait for the loader.
+        const offReplay = onIntroReplay(() => {
+          setLensReady(false);
+          stop();
+          tl.pause(0);
+          stop = onIntroDone(() => tl.restart());
+        });
         return () => {
           stop();
+          offReplay();
           split.revert();
         };
       });
