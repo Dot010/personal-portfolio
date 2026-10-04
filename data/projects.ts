@@ -5,27 +5,28 @@ const screenshot = (url: string) =>
 
 
 export const projects: Project[] = [
-  {
+    {
     group: "selected",
     num: "01",
     category: "Full-Stack",
     title: "SelfCheckApp",
     description:
-      "A self-ordering experience for restaurants: customers browse the menu, build an order and pay from their own phone.",
-    summary: "Next.js · Prisma · Stripe",
+      "Self-ordering system for a fictional açaí shop: customers build their bowl with a 3D preview and pay with Pix or card, the kitchen runs a live order board and a TV screen calls the numbers.",
+    summary: "Next.js · Prisma · Stripe · three.js",
     kind: "Full-Stack web app",
     stack: [
       { name: "Next.js" },
       { name: "TypeScript" },
-      { name: "Tailwind CSS" },
       { name: "Prisma ORM" },
       { name: "PostgreSQL" },
       { name: "Stripe" },
+      { name: "three.js" },
+      { name: "Playwright" },
     ],
     image: screenshot("https://self-check-app.vercel.app/tigela"),
     live: "https://self-check-app.vercel.app/tigela",
     github: "https://github.com/Dot010/SelfCheckApp",
-      role: "Solo — design & full-stack",
+    role: "Solo — design & full-stack",
     status: "Live",
     highlights: [
       "Stripe Checkout with an idempotent webhook (Pix, card, boleto)",
