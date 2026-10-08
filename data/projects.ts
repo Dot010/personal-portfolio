@@ -91,6 +91,34 @@ export const projects: Project[] = [
     status: "In development",
     highlights: ["Emotional journal", "Habit tracking", "Appointments"],
     tag: "in development",
+  },{
+group: "lab",
+    num: "L-02",
+    category: "Frontend",
+    title: "eFoods",
+    description:
+      "Restaurant delivery app: browse restaurants, open the menu, add dishes to the cart and check out in steps — delivery, then payment — against a real API.",
+    summary: "React · Redux Toolkit · RTK Query",
+    kind: "Front-end study (EBAC)",
+    stack: [
+      { name: "React" },
+      { name: "TypeScript" },
+      { name: "Redux Toolkit" },
+      { name: "RTK Query" },
+      { name: "Styled Components" },
+      { name: "Formik + Yup" },
+    ],
+    image: screenshot("https://efoods-chi.vercel.app/"),
+    live: "https://efoods-chi.vercel.app",
+    github: "https://github.com/Dot010/Efoods",
+  role: "Solo — front-end",
+    status: "Live",
+    highlights: [
+      "Data fetched and cached with RTK Query",
+      "Cart and checkout steps in a Redux slice",
+      "Delivery and card forms validated with Formik + Yup",
+    ],
+    tag: "study",
   },
   
 ];
